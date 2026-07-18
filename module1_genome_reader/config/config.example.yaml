@@ -1,0 +1,40 @@
+# Example configuration for Module 1 (The Genome Reader).
+# Copy to config.yaml and edit. Every key can also be overridden on the CLI;
+# CLI flags win over this file, which wins over built-in defaults.
+#
+#   genome-reader --config config/config.example.yaml
+
+# --- Required ---------------------------------------------------------------
+input_dir: data/genomes         # directory of assembled genome FASTA files
+output_dir: out                 # where artifacts are written
+
+# --- AMRFinderPlus ----------------------------------------------------------
+# Organism enables organism-specific point-mutation screening. Must be a
+# recognized AMRFinderPlus value (run `genome-reader --list-organisms`).
+# Leave null for acquired-gene-only mode (no point mutations).
+organism: Escherichia
+
+amrfinder_bin: amrfinder        # path/name of the amrfinder executable
+database_dir: null              # e.g. amrdb/latest ; null = install's bundled DB
+use_plus: true                  # add --plus (stress/virulence screening)
+amrfinder_threads: 1            # threads per AMRFinderPlus invocation
+
+# --- Parallelism / caching --------------------------------------------------
+workers: 4                      # genomes annotated concurrently
+reuse_cache: true               # skip genomes whose cached TSV is still valid
+cache_dir: null                 # null = <output_dir>/cache
+allow_partial: false            # false = fail loudly if any genome fails
+
+# --- Discovery --------------------------------------------------------------
+nucleotide_extensions: [".fasta", ".fa", ".fna", ".fas", ".seq"]
+protein_extensions: [".faa", ".fpaa"]
+protein_handling: skip          # skip | annotate (run detected protein FASTAs with -p)
+
+# --- Feature matrix ---------------------------------------------------------
+# Element types (AMRFinderPlus "Type") that become BINARY-MATRIX columns. The
+# long/provenance table always retains ALL hit types regardless of this list.
+include_element_types: ["AMR"]
+
+# Documented contract for genes/mutations unseen at training time. Recorded in
+# feature_schema.json; the matrix column set stays fixed to the schema.
+unseen_feature_policy: dropped_and_logged

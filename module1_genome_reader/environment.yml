@@ -1,0 +1,24 @@
+# Reproducible conda environment for Module 1 (The Genome Reader).
+# Creates AMRFinderPlus (+ its BLAST+/HMMER deps) alongside the Python stack the
+# pipeline needs. After creating it, download the database with `amrfinder -u`
+# (or scripts/setup_amrfinder.sh), which is NOT bundled in the conda package.
+#
+#   conda env create -f environment.yml
+#   conda activate genome-reader
+#   amrfinder -u            # one-time database download
+#
+# Versions are intentionally left unpinned here so you install the current
+# bioconda release; the pipeline RECORDS the resolved versions in
+# run_manifest.json for each run.
+name: genome-reader
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python>=3.10
+  - ncbi-amrfinderplus
+  - pandas>=2.0
+  - pyarrow>=12.0
+  - pyyaml>=6.0
+  - pytest>=7.0
+  - pip

@@ -1,0 +1,4 @@
+Protein id	Contig id	Start	Stop	Strand	Element symbol	Element name	Scope	Type	Subtype	Class	Subclass	Method	Target length	Reference sequence length	% Coverage of reference	% Identity to reference	Alignment length	Closest reference accession	Closest reference name	HMM accession	HMM description
+NA	contig1	100	960	+	blaTEM-1	class A beta-lactamase TEM-1	core	AMR	AMR	BETA-LACTAM	BETA-LACTAM	EXACTX	286	286	100.00	100.00	286	NG_050145.1	blaTEM-1 family class A beta-lactamase	NA	NA
+NA	contig2	2000	4638	+	gyrA_S83L	quinolone resistance gyrA S83L	core	AMR	POINT	QUINOLONE	QUINOLONE	POINTX	2628	2628	100.00	99.90	2628	NG_050000.1	gyrA	NA	NA
+NA	contig3	500	1500	+	stxB	Shiga toxin subunit B	plus	VIRULENCE	VIRULENCE	NA	NA	EXACTX	89	89	100.00	100.00	89	NG_000010.1	stxB	NA	NA
