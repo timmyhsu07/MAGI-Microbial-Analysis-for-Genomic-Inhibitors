@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Molecular target-gene presence table (CSV)",
+  "description": "Per-genome presence/absence of the drug target genes referenced by the deterministic gate. One row per genome, one 0/1 column per target gene named in the config's drug->target_genes lists. This is a distinct input from the Module 1 resistance-determinant matrix: it records whether the drug's *target* is detectable, not whether a resistance determinant is present.",
+  "type": "object",
+  "required": ["genome_id"],
+  "properties": {
+    "genome_id": {
+      "type": "string",
+      "description": "Join key against the feature matrix and labels. Must be unique."
+    }
+  },
+  "patternProperties": {
+    "^(?!genome_id$).+$": {
+      "description": "One column per target gene symbol. 1 = target detected in the genome, 0 = not detected.",
+      "type": "integer",
+      "enum": [0, 1]
+    }
+  },
+  "additionalProperties": false,
+  "x-notes": [
+    "Every target gene named in any drug's config target_genes list must exist as a column here; a missing column is a hard error, because a silently-absent target would masquerade as 'target present' and defeat the gate.",
+    "A genome missing from this table is treated as target-unknown and the gate does not fire for it (the model call stands, and the gap is logged)."
+  ]
+}

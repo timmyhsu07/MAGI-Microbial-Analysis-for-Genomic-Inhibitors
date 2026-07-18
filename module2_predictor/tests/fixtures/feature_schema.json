@@ -1,0 +1,338 @@
+{
+  "schema_version": "1.0.0",
+  "pipeline_version": "0.1.0",
+  "generated_at": "2026-07-18T18:28:50Z",
+  "matrix": {
+    "id_column": "genome_id",
+    "value_encoding": "presence_absence",
+    "value_domain": [
+      0,
+      1
+    ],
+    "dtype": "int8",
+    "n_genomes": 42,
+    "n_features": 14,
+    "included_element_types": [
+      "AMR"
+    ],
+    "column_order": "ascending lexicographic by element_symbol",
+    "unseen_feature_policy": "dropped_and_logged"
+  },
+  "provenance": {
+    "organism": "Escherichia",
+    "use_plus": true,
+    "amrfinderplus_software_version": "4.0.19",
+    "amrfinderplus_database_version": "2026-01-15.1",
+    "synthetic_fixture": true
+  },
+  "columns": [
+    {
+      "column": "aac(3)-IIa",
+      "element_symbol": "aac(3)-IIa",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "AMINOGLYCOSIDE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 16
+    },
+    {
+      "column": "aac(6')-Ib",
+      "element_symbol": "aac(6')-Ib",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "AMINOGLYCOSIDE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 7
+    },
+    {
+      "column": "aadA1",
+      "element_symbol": "aadA1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "AMINOGLYCOSIDE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 6
+    },
+    {
+      "column": "aph(3')-Ia",
+      "element_symbol": "aph(3')-Ia",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "AMINOGLYCOSIDE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 6
+    },
+    {
+      "column": "blaCTX-M-15",
+      "element_symbol": "blaCTX-M-15",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "BETA-LACTAM"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 8
+    },
+    {
+      "column": "blaSHV-12",
+      "element_symbol": "blaSHV-12",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "BETA-LACTAM"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 7
+    },
+    {
+      "column": "blaTEM-1",
+      "element_symbol": "blaTEM-1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "BETA-LACTAM"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 15
+    },
+    {
+      "column": "dfrA1",
+      "element_symbol": "dfrA1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "TRIMETHOPRIM"
+      ],
+      "drug_subclasses": [
+        "TRIMETHOPRIM"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 4
+    },
+    {
+      "column": "gyrA_S83L",
+      "element_symbol": "gyrA_S83L",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 16
+    },
+    {
+      "column": "parC_S80I",
+      "element_symbol": "parC_S80I",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 14
+    },
+    {
+      "column": "qnrS1",
+      "element_symbol": "qnrS1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 6
+    },
+    {
+      "column": "sul1",
+      "element_symbol": "sul1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "SULFONAMIDE"
+      ],
+      "drug_subclasses": [
+        "SULFONAMIDE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 11
+    },
+    {
+      "column": "sul2",
+      "element_symbol": "sul2",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "SULFONAMIDE"
+      ],
+      "drug_subclasses": [
+        "SULFONAMIDE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 10
+    },
+    {
+      "column": "tet(A)",
+      "element_symbol": "tet(A)",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "TETRACYCLINE"
+      ],
+      "drug_subclasses": [
+        "TETRACYCLINE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 16
+    }
+  ]
+}

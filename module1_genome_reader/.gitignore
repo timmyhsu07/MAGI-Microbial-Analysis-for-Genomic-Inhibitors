@@ -1,0 +1,11 @@
+# Python / build artifacts
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.venv/
+
+# Local pipeline outputs (reproducible; not source)
+example_run/
+out/
+setup_versions.txt

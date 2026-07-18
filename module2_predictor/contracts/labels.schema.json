@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AMR phenotype labels (CSV)",
+  "description": "Per-genome resistant/susceptible phenotypes, one column per drug. Read by Module 2 as a training target. This JSON Schema documents the CSV row shape; the file on disk is a CSV, not JSON.",
+  "type": "object",
+  "required": ["genome_id"],
+  "properties": {
+    "genome_id": {
+      "type": "string",
+      "description": "Join key against the Module 1 feature matrix (features_binary). Must be unique."
+    }
+  },
+  "patternProperties": {
+    "^(?!genome_id$).+$": {
+      "description": "One column per drug. Cell values: 'R' (resistant), 'S' (susceptible), 'I' (intermediate, treated as unknown), or empty (phenotype not measured). Anything else is a hard error.",
+      "type": "string",
+      "enum": ["R", "S", "I", ""]
+    }
+  },
+  "additionalProperties": false,
+  "x-notes": [
+    "A drug column may be sparsely populated; genomes with an empty/I cell for a drug are simply excluded from that drug's train/eval set.",
+    "Positive class is R. A drug with fewer than the configured minimum labelled genomes per class is skipped and reported, not trained."
+  ]
+}

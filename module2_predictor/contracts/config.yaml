@@ -1,0 +1,83 @@
+# Module 2 (Predictor) — reference configuration.
+#
+# This is the frozen contract for how the predictor is wired: input artifact
+# paths, the clustering/de-duplication policy, cross-validation layout, the
+# per-drug target gate, and the decision thresholds. Copy to config.local.yaml
+# and edit paths for a real run; the CLI accepts --config to point elsewhere.
+#
+# Every path is resolved relative to this file's directory unless absolute.
+
+seed: 1234
+output_dir: out
+
+# --- Inputs (Module 1 artifacts + phenotype/target tables) ------------------
+inputs:
+  # Module 1 primary output and its column manifest.
+  feature_matrix: ../tests/fixtures/features_binary.parquet
+  feature_schema: ../tests/fixtures/feature_schema.json
+  # Phenotype labels, one R/S column per drug. See contracts/labels.schema.json.
+  labels: ../tests/fixtures/labels.csv
+  # Molecular target-gene presence for the gate. See contracts/target_genes.schema.json.
+  target_gene_table: ../tests/fixtures/target_genes.csv
+
+# --- De-duplication / genetic clustering ------------------------------------
+# Genomes are clustered by genetic distance so near-duplicate isolates never
+# straddle a train/test boundary. Whole clusters are the CV grouping unit.
+distance:
+  # 'mash' shells out to the mash binary over a sketch/FASTA dir (preferred for
+  # real runs); 'jaccard' computes distance on the binary AMR feature matrix and
+  # needs no external tool (used offline and for the fixture set). Documented
+  # proxy — jaccard is coarser than mash and is only a fallback.
+  method: jaccard
+  mash_sketch_dir: null
+  # Single-linkage cutoff. 0.05 ~ 95% shared content: collapses re-sequenced or
+  # clonal isolates while keeping genuinely distinct strains apart. TUNABLE —
+  # raise it to be stricter about independence, lower it to keep more groups.
+  cluster_threshold: 0.05
+
+# --- Cross-validation -------------------------------------------------------
+cv:
+  n_splits: 5
+  # Fraction of each fold's NON-test clusters held out (whole clusters) to fit
+  # the isotonic calibrator. The calibrator never sees the test fold.
+  calibration_fraction: 0.25
+  # A drug needs at least this many labelled genomes in each class to be trained
+  # at all; otherwise it is skipped and reported.
+  min_per_class: 3
+
+# --- Model ------------------------------------------------------------------
+model:
+  # L2-penalised, class-weight='balanced' logistic regression per drug.
+  C: 1.0
+  max_iter: 2000
+
+# --- Out-of-distribution guard ----------------------------------------------
+ood:
+  # A query genome whose nearest TRAINING genome is farther than this (same
+  # distance metric as clustering) is flagged OOD and forced to no_call.
+  # Calibrated for Jaccard distance over the AMR feature vocabulary: clonal /
+  # well-represented genomes sit near 0, so this only trips for genomes unlike
+  # anything trained on. TUNABLE — lower it to be more cautious (more no_calls).
+  threshold: 0.5
+
+# --- Decision policy --------------------------------------------------------
+decision:
+  # Calibrated confidence must clear this to make a call. A calibrated P(resist)
+  # inside [1 - min_confidence, min_confidence] is reported as no_call.
+  min_confidence: 0.65
+
+# --- Drugs and their molecular target genes (the deterministic gate) --------
+# Each drug column in labels.csv must appear here. target_genes lists the drug's
+# molecular target(s); if NONE of them are detected in a genome, the gate fires
+# and fixes the call to on_target_absent, overriding the model. Every gate
+# firing is logged separately from the model call.
+drugs:
+  ciprofloxacin:
+    target_genes: [gyrA, parC]
+    on_target_absent: no_call
+  ampicillin:
+    target_genes: [ftsI]
+    on_target_absent: no_call
+  gentamicin:
+    target_genes: [rpsL]
+    on_target_absent: no_call

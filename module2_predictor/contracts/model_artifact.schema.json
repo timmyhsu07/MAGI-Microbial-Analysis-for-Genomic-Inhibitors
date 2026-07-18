@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Per-drug model artifact",
+  "description": "The auditable JSON description of one trained drug model: the frozen feature vocabulary, the logistic-regression weights, the isotonic calibrator, the target gate, and the decision thresholds. A companion .joblib holds the live sklearn estimators; this JSON is the human-readable, diffable contract and is sufficient to reproduce a calibrated probability by hand.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "drug",
+    "trained_at",
+    "feature_columns",
+    "model",
+    "calibrator",
+    "gate",
+    "decision",
+    "ood",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "drug": { "type": "string" },
+    "trained_at": { "type": "string", "description": "ISO-8601 UTC timestamp." },
+    "positive_class": { "type": "string", "const": "R" },
+    "feature_columns": {
+      "type": "array",
+      "description": "Frozen, ordered feature vocabulary. Identical to (a subset of, in fixed order) the Module 1 feature_schema columns. Inference maps a new genome onto exactly these columns and never reshapes.",
+      "items": { "type": "string" }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "penalty", "C", "class_weight", "coef", "intercept"],
+      "properties": {
+        "kind": { "type": "string", "const": "logistic_regression" },
+        "penalty": { "type": "string", "const": "l2" },
+        "C": { "type": "number" },
+        "class_weight": { "type": "string", "const": "balanced" },
+        "coef": {
+          "type": "array",
+          "description": "One weight per entry in feature_columns, same order.",
+          "items": { "type": "number" }
+        },
+        "intercept": { "type": "number" }
+      }
+    },
+    "calibrator": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Isotonic regression mapping raw model probability -> calibrated probability. Stored as its monotone knot points so the mapping is transparent and reproducible.",
+      "required": ["kind", "x_thresholds", "y_thresholds"],
+      "properties": {
+        "kind": { "type": "string", "const": "isotonic" },
+        "x_thresholds": { "type": "array", "items": { "type": "number" } },
+        "y_thresholds": { "type": "array", "items": { "type": "number" } }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Deterministic target gate. Overrides the model when the drug's molecular target is absent.",
+      "required": ["target_genes", "on_target_absent"],
+      "properties": {
+        "target_genes": { "type": "array", "items": { "type": "string" } },
+        "on_target_absent": { "type": "string", "enum": ["resistant", "susceptible", "no_call"] }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "How a calibrated probability becomes a call. A calibrated probability inside the no-call band around 0.5 (half-width = min_confidence - 0.5) is reported as no_call.",
+      "required": ["min_confidence"],
+      "properties": {
+        "min_confidence": { "type": "number", "minimum": 0.5, "maximum": 1.0 }
+      }
+    },
+    "ood": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Out-of-distribution guard. A query genome whose nearest training genome is farther than threshold is flagged and forced to no_call.",
+      "required": ["threshold", "train_fingerprints"],
+      "properties": {
+        "threshold": { "type": "number" },
+        "train_fingerprints": {
+          "type": "array",
+          "description": "Presence/absence rows of the training genomes over feature_columns, used to compute the nearest-neighbour distance at inference time.",
+          "items": { "type": "array", "items": { "type": "integer", "enum": [0, 1] } }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["seed", "n_train_genomes", "n_train_clusters", "feature_schema_version", "library_versions"],
+      "properties": {
+        "seed": { "type": "integer" },
+        "n_train_genomes": { "type": "integer" },
+        "n_train_clusters": { "type": "integer" },
+        "cluster_threshold": { "type": "number" },
+        "distance_method": { "type": "string" },
+        "feature_schema_version": { "type": "string" },
+        "library_versions": { "type": "object" }
+      }
+    }
+  }
+}
