@@ -8,7 +8,7 @@ import os
 import tempfile
 from dataclasses import asdict, replace
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 import pandas as pd
 import streamlit as st
@@ -866,10 +866,6 @@ def render_report(report: GenomeReport, config: DecisionConfig) -> None:
     render_coverage(report)
 
 
-def _text_from_sequence(values: Iterable[str]) -> tuple[str, ...]:
-    return tuple(value.strip() for value in values if value.strip())
-
-
 # Repo-relative location of the demo artifacts produced by
 # scripts/fetch_bvbrc_ecoli.py + Module 1 + Module 2 (see README). Prefilling
 # these means real mode loads with zero typing on stage; each is overridable via
@@ -877,13 +873,8 @@ def _text_from_sequence(values: Iterable[str]) -> tuple[str, ...]:
 _DEFAULT_DATA_SUBDIR = "data/bvbrc_ecoli"
 
 
-def _repo_root() -> Path:
-    # app.py lives at module3_decision_report/src/decision_report/app.py
-    return Path(__file__).resolve().parents[3]
-
-
 def _demo_defaults() -> dict[str, str]:
-    data = _repo_root() / _DEFAULT_DATA_SUBDIR
+    data = Path(__file__).resolve().parents[3] / _DEFAULT_DATA_SUBDIR
     return {
         "models_dir": os.environ.get("GENOME_FIREWALL_MODELS_DIR", str(data / "module2_out" / "models")),
         "target_gene_table": os.environ.get("GENOME_FIREWALL_TARGETS", str(data / "target_genes.csv")),
@@ -935,8 +926,6 @@ def _sidebar() -> tuple[str, Any, Any, DecisionConfig, str]:
             try:
                 predictor = ModelPredictor(models_dir, target_gene_table, species)
                 extractor = Module1FeatureStore(module1_output_dir)
-            except (IntegrationError, DecisionReportError, OSError, ValueError) as exc:
-                st.sidebar.error(f"Real pipeline unavailable: {exc}")
             except Exception as exc:  # defensive boundary: never expose Streamlit traceback
                 st.sidebar.error(f"Real pipeline unavailable: {exc}")
         else:
@@ -949,7 +938,7 @@ def _sidebar() -> tuple[str, Any, Any, DecisionConfig, str]:
             "Additional requested drugs (comma-separated)",
             help="Uncovered names render as first-class no-call cards.",
         )
-    additions = _text_from_sequence(requested.split(","))
+    additions = tuple(value.strip() for value in requested.split(",") if value.strip())
     drugs_of_interest = tuple(dict.fromkeys([*covered_drugs, *additions])) if additions else ()
     config = replace(
         base_config,

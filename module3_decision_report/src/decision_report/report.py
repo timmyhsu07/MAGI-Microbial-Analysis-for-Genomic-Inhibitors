@@ -31,10 +31,6 @@ MANDATORY_DISCLAIMER = (
 )
 
 
-def _drugs_of_interest(config: DecisionConfig, covered: list[str]) -> list[str]:
-    return list(config.drugs_of_interest) if config.drugs_of_interest else list(covered)
-
-
 def build_report(
     features: FeatureBundle,
     predictor: Predictor,
@@ -43,7 +39,7 @@ def build_report(
 ) -> GenomeReport:
     """Build a per-genome report from already-extracted features + a predictor."""
     covered = predictor.covered_drugs()
-    drugs = _drugs_of_interest(config, covered)
+    drugs = list(config.drugs_of_interest) if config.drugs_of_interest else list(covered)
     uncovered_requested = [d for d in drugs if d not in covered]
 
     # Graceful failure: unsupported species -> no per-drug guesses.

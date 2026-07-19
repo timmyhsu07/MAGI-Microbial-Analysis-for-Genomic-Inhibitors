@@ -165,22 +165,6 @@ SUBTYPE_POINT = "POINT"
 FEATURE_KIND_ACQUIRED = "acquired_gene"
 FEATURE_KIND_POINT = "point_mutation"
 
-# Documented Method values (informational; used only for validation warnings).
-# Base methods carry a 'P' (protein) or 'X' (translated nucleotide) suffix in
-# practice, e.g. EXACTX, BLASTP, POINTX.
-KNOWN_METHOD_BASES = frozenset(
-    {
-        "ALLELE",
-        "EXACT",
-        "BLAST",
-        "PARTIAL",
-        "PARTIAL_CONTIG_END",
-        "HMM",
-        "INTERNAL_STOP",
-        "POINT",
-    }
-)
-
 
 # --------------------------------------------------------------------------- #
 # Recognized --organism values (AMRFinderPlus, verified July 2026).

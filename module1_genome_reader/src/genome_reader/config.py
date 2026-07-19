@@ -10,7 +10,7 @@ is unknown or the input directory is missing.
 from __future__ import annotations
 
 import json
-from dataclasses import asdict, dataclass, replace
+from dataclasses import asdict, dataclass, fields, replace
 from pathlib import Path
 from typing import Any
 
@@ -149,7 +149,7 @@ def load_config(
 
     data = _coerce_types(data)
 
-    valid_keys = {f.name for f in Config.__dataclass_fields__.values()}  # type: ignore[attr-defined]
+    valid_keys = {item.name for item in fields(Config)}
     unknown = set(data) - valid_keys
     if unknown:
         raise ConfigError(

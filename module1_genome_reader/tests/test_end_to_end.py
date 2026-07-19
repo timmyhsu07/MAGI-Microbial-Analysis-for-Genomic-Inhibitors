@@ -11,7 +11,7 @@ import json
 import pandas as pd
 import pytest
 
-from conftest import FROZEN_TIME, MockAmrfinderRunner, frozen_clock
+from conftest import MockAmrfinderRunner, frozen_clock
 from genome_reader import constants
 from genome_reader.config import Config
 from genome_reader.pipeline import PipelineError, run_pipeline

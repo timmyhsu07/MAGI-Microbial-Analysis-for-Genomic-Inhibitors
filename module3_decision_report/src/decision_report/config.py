@@ -14,7 +14,7 @@ validation set and records the provenance in `tuned_on`.
 from __future__ import annotations
 
 import json
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, fields
 from pathlib import Path
 from typing import Any
 
@@ -111,7 +111,7 @@ def load_config(path: str | Path | None = None, overrides: dict[str, Any] | None
         data.update({k: v for k, v in overrides.items() if v is not None})
 
     data = _coerce(data)
-    valid = {f.name for f in DecisionConfig.__dataclass_fields__.values()}  # type: ignore[attr-defined]
+    valid = {item.name for item in fields(DecisionConfig)}
     unknown = set(data) - valid
     if unknown:
         raise ConfigError(f"unknown config key(s): {sorted(unknown)}")

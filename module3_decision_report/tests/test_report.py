@@ -8,11 +8,9 @@ from __future__ import annotations
 
 import dataclasses
 
-from decision_report.config import DecisionConfig
 from decision_report.contracts import (
     DecisionLabel,
     FeatureBundle,
-    FeatureExtractionError,
     NoCallReason,
     PredictorUnavailable,
 )

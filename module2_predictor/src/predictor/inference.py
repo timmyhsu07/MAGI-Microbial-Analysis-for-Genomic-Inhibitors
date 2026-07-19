@@ -26,10 +26,6 @@ def load_artifacts(models_dir: str | Path) -> dict[str, dict[str, Any]]:
     return artifacts
 
 
-def load_models(models_dir: str | Path) -> dict[str, dict[str, Any]]:
-    return load_artifacts(models_dir)
-
-
 def _vectorize(feature_row: Mapping[str, int], columns: list[str]) -> np.ndarray:
     return np.array([[int(feature_row.get(c, 0)) for c in columns]], dtype=np.int8)
 
