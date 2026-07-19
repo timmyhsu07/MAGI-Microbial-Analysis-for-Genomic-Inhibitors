@@ -79,6 +79,12 @@ class Module1FeatureStore:
         }
         self.used_reconstructed_hits = self._long is None
 
+    def genome_ids(self) -> list[str]:
+        """Genome IDs present in this Module 1 output directory, sorted -- lets
+        the UI offer a dropdown instead of a free-text ID box (no typing on
+        stage, no guessing identifiers that aren't in the store)."""
+        return sorted(self._binary_by_id)
+
     @staticmethod
     def _read_binary_matrix(out: Path) -> dict[str, dict[str, int]]:
         parquet_path = out / "features_binary.parquet"

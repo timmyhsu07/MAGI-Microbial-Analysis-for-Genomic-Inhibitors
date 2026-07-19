@@ -1,0 +1,1649 @@
+{
+  "schema_version": "1.0.0",
+  "pipeline_version": "0.1.0",
+  "generated_at": "2026-07-19T02:07:35Z",
+  "matrix": {
+    "id_column": "genome_id",
+    "value_encoding": "presence_absence",
+    "value_domain": [
+      0,
+      1
+    ],
+    "dtype": "int8",
+    "n_genomes": 40,
+    "n_features": 73,
+    "included_element_types": [
+      "AMR"
+    ],
+    "column_order": "ascending lexicographic by element_symbol",
+    "unseen_feature_policy": "dropped_and_logged",
+    "unseen_feature_policy_detail": "At inference time the feature columns are FIXED to this manifest. A gene/mutation not present here is dropped from the feature vector and logged; the matrix column set never grows from unseen genomes. A known column absent in a new genome is encoded 0."
+  },
+  "provenance": {
+    "organism": "Escherichia",
+    "use_plus": true,
+    "amrfinderplus_software_version": "4.2.7",
+    "amrfinderplus_database_version": "2026-05-15.1"
+  },
+  "columns": [
+    {
+      "column": "aac(3)-IId",
+      "element_symbol": "aac(3)-IId",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "GENTAMICIN"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 2
+    },
+    {
+      "column": "aac(3)-IIe",
+      "element_symbol": "aac(3)-IIe",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "GENTAMICIN"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 4
+    },
+    {
+      "column": "aac(6')-Ib-cr5",
+      "element_symbol": "aac(6')-Ib-cr5",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE/QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "AMIKACIN/KANAMYCIN/QUINOLONE/TOBRAMYCIN"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "aadA1",
+      "element_symbol": "aadA1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "STREPTOMYCIN"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 3
+    },
+    {
+      "column": "aadA2",
+      "element_symbol": "aadA2",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "STREPTOMYCIN"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 3
+    },
+    {
+      "column": "aadA5",
+      "element_symbol": "aadA5",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "STREPTOMYCIN"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 5
+    },
+    {
+      "column": "acrF",
+      "element_symbol": "acrF",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "EFFLUX"
+      ],
+      "drug_subclasses": [
+        "EFFLUX"
+      ],
+      "methods_observed": [
+        "BLASTX",
+        "EXACTX",
+        "PARTIALX",
+        "PARTIAL_CONTIG_ENDX"
+      ],
+      "n_genomes_present": 39
+    },
+    {
+      "column": "acrR_C117Ter",
+      "element_symbol": "acrR_C117Ter",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT_DISRUPT"
+      ],
+      "drug_classes": [
+        "MULTIDRUG"
+      ],
+      "drug_subclasses": [
+        "AMPICILLIN/CHLORAMPHENICOL/FLUOROQUINOLONE/RIFAMPIN/TETRACYCLINE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "acrR_V29YfsTer44",
+      "element_symbol": "acrR_V29YfsTer44",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT_DISRUPT"
+      ],
+      "drug_classes": [
+        "MULTIDRUG"
+      ],
+      "drug_subclasses": [
+        "AMPICILLIN/CHLORAMPHENICOL/FLUOROQUINOLONE/RIFAMPIN/TETRACYCLINE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "acrR_W50LfsTer4",
+      "element_symbol": "acrR_W50LfsTer4",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT_DISRUPT"
+      ],
+      "drug_classes": [
+        "MULTIDRUG"
+      ],
+      "drug_subclasses": [
+        "AMPICILLIN/CHLORAMPHENICOL/FLUOROQUINOLONE/RIFAMPIN/TETRACYCLINE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "aph(3'')-Ib",
+      "element_symbol": "aph(3'')-Ib",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "STREPTOMYCIN"
+      ],
+      "methods_observed": [
+        "BLASTX",
+        "EXACTX"
+      ],
+      "n_genomes_present": 12
+    },
+    {
+      "column": "aph(3')-Ia",
+      "element_symbol": "aph(3')-Ia",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "KANAMYCIN"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 2
+    },
+    {
+      "column": "aph(6)-Id",
+      "element_symbol": "aph(6)-Id",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "AMINOGLYCOSIDE"
+      ],
+      "drug_subclasses": [
+        "STREPTOMYCIN"
+      ],
+      "methods_observed": [
+        "EXACTX",
+        "PARTIALX"
+      ],
+      "n_genomes_present": 12
+    },
+    {
+      "column": "blaCTX-M-15",
+      "element_symbol": "blaCTX-M-15",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "CEPHALOSPORIN"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 3
+    },
+    {
+      "column": "blaCTX-M-55",
+      "element_symbol": "blaCTX-M-55",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "CEPHALOSPORIN"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 3
+    },
+    {
+      "column": "blaEC",
+      "element_symbol": "blaEC",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "BETA-LACTAM"
+      ],
+      "methods_observed": [
+        "BLASTX",
+        "EXACTX"
+      ],
+      "n_genomes_present": 36
+    },
+    {
+      "column": "blaEC-5",
+      "element_symbol": "blaEC-5",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "CEPHALOSPORIN"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 4
+    },
+    {
+      "column": "blaKPC-3",
+      "element_symbol": "blaKPC-3",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "CARBAPENEM"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "blaNDM-5",
+      "element_symbol": "blaNDM-5",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "CARBAPENEM"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "blaOXA-1",
+      "element_symbol": "blaOXA-1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "CEPHALOSPORIN"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "blaTEM-1",
+      "element_symbol": "blaTEM-1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "BETA-LACTAM"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 13
+    },
+    {
+      "column": "blaTEMp_G162T",
+      "element_symbol": "blaTEMp_G162T",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "AMOXICILLIN-CLAVULANIC_ACID/PIPERACILLIN-TAZOBACTAM/TICARCILLIN-CLAVULANIC_ACID"
+      ],
+      "methods_observed": [
+        "POINTN"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "ble",
+      "element_symbol": "ble",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BLEOMYCIN"
+      ],
+      "drug_subclasses": [
+        "BLEOMYCIN"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "bleO",
+      "element_symbol": "bleO",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BLEOMYCIN"
+      ],
+      "drug_subclasses": [
+        "BLEOMYCIN"
+      ],
+      "methods_observed": [
+        "PARTIALX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "catA1",
+      "element_symbol": "catA1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "PHENICOL"
+      ],
+      "drug_subclasses": [
+        "CHLORAMPHENICOL"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 3
+    },
+    {
+      "column": "catB3",
+      "element_symbol": "catB3",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "PHENICOL"
+      ],
+      "drug_subclasses": [
+        "CHLORAMPHENICOL"
+      ],
+      "methods_observed": [
+        "PARTIALX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "cirA_G352EfsTer26",
+      "element_symbol": "cirA_G352EfsTer26",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT_DISRUPT"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "CEFIDEROCOL"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "cirA_Q56Ter",
+      "element_symbol": "cirA_Q56Ter",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT_DISRUPT"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "CEFIDEROCOL"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "cirA_W21CfsTer3",
+      "element_symbol": "cirA_W21CfsTer3",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT_DISRUPT"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "CEFIDEROCOL"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "cmlA1",
+      "element_symbol": "cmlA1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "PHENICOL"
+      ],
+      "drug_subclasses": [
+        "CHLORAMPHENICOL"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 2
+    },
+    {
+      "column": "cyaA_S352T",
+      "element_symbol": "cyaA_S352T",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "FOSMIDOMYCIN"
+      ],
+      "drug_subclasses": [
+        "FOSMIDOMYCIN"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 5
+    },
+    {
+      "column": "dfrA1",
+      "element_symbol": "dfrA1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "TRIMETHOPRIM"
+      ],
+      "drug_subclasses": [
+        "TRIMETHOPRIM"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "dfrA12",
+      "element_symbol": "dfrA12",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "TRIMETHOPRIM"
+      ],
+      "drug_subclasses": [
+        "TRIMETHOPRIM"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "dfrA14",
+      "element_symbol": "dfrA14",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "TRIMETHOPRIM"
+      ],
+      "drug_subclasses": [
+        "TRIMETHOPRIM"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 2
+    },
+    {
+      "column": "dfrA17",
+      "element_symbol": "dfrA17",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "TRIMETHOPRIM"
+      ],
+      "drug_subclasses": [
+        "TRIMETHOPRIM"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 5
+    },
+    {
+      "column": "dfrA5",
+      "element_symbol": "dfrA5",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "TRIMETHOPRIM"
+      ],
+      "drug_subclasses": [
+        "TRIMETHOPRIM"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "dfrA7",
+      "element_symbol": "dfrA7",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "TRIMETHOPRIM"
+      ],
+      "drug_subclasses": [
+        "TRIMETHOPRIM"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 2
+    },
+    {
+      "column": "emrD",
+      "element_symbol": "emrD",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "EFFLUX"
+      ],
+      "drug_subclasses": [
+        "EFFLUX"
+      ],
+      "methods_observed": [
+        "BLASTX"
+      ],
+      "n_genomes_present": 26
+    },
+    {
+      "column": "estX-3",
+      "element_symbol": "estX-3",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "MACROLIDE"
+      ],
+      "drug_subclasses": [
+        "TYLOSIN"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 2
+    },
+    {
+      "column": "floR",
+      "element_symbol": "floR",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "PHENICOL"
+      ],
+      "drug_subclasses": [
+        "CHLORAMPHENICOL/FLORFENICOL"
+      ],
+      "methods_observed": [
+        "BLASTX",
+        "EXACTX"
+      ],
+      "n_genomes_present": 2
+    },
+    {
+      "column": "ftsI_N337NYRIN",
+      "element_symbol": "ftsI_N337NYRIN",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "AZTREONAM/CEFIDEROCOL/CEPHALOSPORIN"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "gyrA_D87N",
+      "element_symbol": "gyrA_D87N",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 8
+    },
+    {
+      "column": "gyrA_D87Y",
+      "element_symbol": "gyrA_D87Y",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "gyrA_S83A",
+      "element_symbol": "gyrA_S83A",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "gyrA_S83L",
+      "element_symbol": "gyrA_S83L",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 10
+    },
+    {
+      "column": "marR_S3N",
+      "element_symbol": "marR_S3N",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "MULTIDRUG"
+      ],
+      "drug_subclasses": [
+        "AMPICILLIN/CHLORAMPHENICOL/QUINOLONE/RIFAMPIN/TETRACYCLINE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 9
+    },
+    {
+      "column": "mcr-1.1",
+      "element_symbol": "mcr-1.1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "COLISTIN"
+      ],
+      "drug_subclasses": [
+        "COLISTIN"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 2
+    },
+    {
+      "column": "mdtM",
+      "element_symbol": "mdtM",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "EFFLUX"
+      ],
+      "drug_subclasses": [
+        "EFFLUX"
+      ],
+      "methods_observed": [
+        "BLASTX",
+        "INTERNAL_STOP"
+      ],
+      "n_genomes_present": 27
+    },
+    {
+      "column": "mph(A)",
+      "element_symbol": "mph(A)",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "MACROLIDE"
+      ],
+      "drug_subclasses": [
+        "AZITHROMYCIN/ERYTHROMYCIN/SPIRAMYCIN/TELITHROMYCIN"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 4
+    },
+    {
+      "column": "mrx(A)",
+      "element_symbol": "mrx(A)",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "MACROLIDE"
+      ],
+      "drug_subclasses": [
+        "AZITHROMYCIN/ERYTHROMYCIN/SPIRAMYCIN/TELITHROMYCIN"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 4
+    },
+    {
+      "column": "nfsA_H11Y",
+      "element_symbol": "nfsA_H11Y",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "NITROFURAN"
+      ],
+      "drug_subclasses": [
+        "NITROFURANTOIN"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "nfsA_K167Ter",
+      "element_symbol": "nfsA_K167Ter",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT_DISRUPT"
+      ],
+      "drug_classes": [
+        "NITROFURAN"
+      ],
+      "drug_subclasses": [
+        "NITROFURANTOIN"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "oqxA",
+      "element_symbol": "oqxA",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "NITROFURAN/PHENICOL/QUINOLONE/TETRACYCLINE"
+      ],
+      "drug_subclasses": [
+        "NITROFURANTOIN/PHENICOL/QUINOLONE/TIGECYCLINE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "oqxB",
+      "element_symbol": "oqxB",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "NITROFURAN/PHENICOL/QUINOLONE/TETRACYCLINE"
+      ],
+      "drug_subclasses": [
+        "NITROFURANTOIN/PHENICOL/QUINOLONE/TIGECYCLINE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "parC_A56T",
+      "element_symbol": "parC_A56T",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "parC_E84G",
+      "element_symbol": "parC_E84G",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "parC_E84V",
+      "element_symbol": "parC_E84V",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 3
+    },
+    {
+      "column": "parC_S80I",
+      "element_symbol": "parC_S80I",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 9
+    },
+    {
+      "column": "parE_I355T",
+      "element_symbol": "parE_I355T",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 3
+    },
+    {
+      "column": "parE_I529L",
+      "element_symbol": "parE_I529L",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 3
+    },
+    {
+      "column": "parE_S458A",
+      "element_symbol": "parE_S458A",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 3
+    },
+    {
+      "column": "pmrB_V161G",
+      "element_symbol": "pmrB_V161G",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "COLISTIN"
+      ],
+      "drug_subclasses": [
+        "COLISTIN"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "ptsI_V25I",
+      "element_symbol": "ptsI_V25I",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "FOSFOMYCIN"
+      ],
+      "drug_subclasses": [
+        "FOSFOMYCIN"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 3
+    },
+    {
+      "column": "qnrS1",
+      "element_symbol": "qnrS1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "qnrS4",
+      "element_symbol": "qnrS4",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "ALLELEX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "soxS_A12S",
+      "element_symbol": "soxS_A12S",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "MULTIDRUG"
+      ],
+      "drug_subclasses": [
+        "AMPICILLIN/CHLORAMPHENICOL/QUINOLONE/RIFAMPIN/TETRACYCLINE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "sul1",
+      "element_symbol": "sul1",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "SULFONAMIDE"
+      ],
+      "drug_subclasses": [
+        "SULFONAMIDE"
+      ],
+      "methods_observed": [
+        "BLASTX",
+        "EXACTX",
+        "PARTIAL_CONTIG_ENDX"
+      ],
+      "n_genomes_present": 7
+    },
+    {
+      "column": "sul2",
+      "element_symbol": "sul2",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "SULFONAMIDE"
+      ],
+      "drug_subclasses": [
+        "SULFONAMIDE"
+      ],
+      "methods_observed": [
+        "BLASTX",
+        "EXACTX"
+      ],
+      "n_genomes_present": 13
+    },
+    {
+      "column": "sul3",
+      "element_symbol": "sul3",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "SULFONAMIDE"
+      ],
+      "drug_subclasses": [
+        "SULFONAMIDE"
+      ],
+      "methods_observed": [
+        "BLASTX",
+        "EXACTX"
+      ],
+      "n_genomes_present": 2
+    },
+    {
+      "column": "tet(A)",
+      "element_symbol": "tet(A)",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "TETRACYCLINE"
+      ],
+      "drug_subclasses": [
+        "TETRACYCLINE"
+      ],
+      "methods_observed": [
+        "BLASTX",
+        "EXACTX"
+      ],
+      "n_genomes_present": 8
+    },
+    {
+      "column": "tet(B)",
+      "element_symbol": "tet(B)",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "TETRACYCLINE"
+      ],
+      "drug_subclasses": [
+        "TETRACYCLINE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 4
+    },
+    {
+      "column": "tet(D)",
+      "element_symbol": "tet(D)",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "TETRACYCLINE"
+      ],
+      "drug_subclasses": [
+        "TETRACYCLINE"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "uhpT_E350Q",
+      "element_symbol": "uhpT_E350Q",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "FOSFOMYCIN"
+      ],
+      "drug_subclasses": [
+        "FOSFOMYCIN"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 9
+    }
+  ]
+}

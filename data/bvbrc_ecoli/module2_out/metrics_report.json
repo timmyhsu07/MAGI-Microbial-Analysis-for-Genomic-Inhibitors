@@ -1,0 +1,1070 @@
+{
+  "drugs": {
+    "ampicillin": {
+      "n_genomes": 40,
+      "n_clusters": 32,
+      "overall": {
+        "balanced_accuracy": 0.8248081841432224,
+        "resistant_recall": 0.8235294117647058,
+        "susceptible_recall": 0.8260869565217391,
+        "f1": 0.8,
+        "auroc": 0.867007672634271,
+        "pr_auc": 0.9063795518207283,
+        "brier": 0.1524694303190503
+      },
+      "per_group": {
+        "0": {
+          "n": 2,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "1": {
+          "n": 2,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "2": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0047592308134214245
+        },
+        "3": {
+          "n": 2,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.19810590042644136
+        },
+        "4": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "5": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 5.34813030585801e-05
+        },
+        "6": {
+          "n": 3,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "7": {
+          "n": 4,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.1111111111111111
+        },
+        "8": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "9": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": null,
+          "susceptible_recall": 0.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.7135571239349809
+        },
+        "10": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "11": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.10602616821676568
+        },
+        "12": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0013443105717922859
+        },
+        "13": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "14": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": 0.0,
+          "susceptible_recall": null,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 1.0
+        },
+        "15": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "16": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0001520007597165664
+        },
+        "17": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "18": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "19": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "20": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "21": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "22": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": 0.0,
+          "susceptible_recall": null,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 1.0
+        },
+        "23": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "24": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": null,
+          "susceptible_recall": 0.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.3472060194424162
+        },
+        "25": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.19613374353364535
+        },
+        "26": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "27": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": null,
+          "susceptible_recall": 0.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.4444444444444444
+        },
+        "28": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "29": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": 0.0,
+          "susceptible_recall": null,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 1.0
+        },
+        "30": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": null,
+          "susceptible_recall": 0.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.4444444444444444
+        },
+        "31": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        }
+      }
+    },
+    "ciprofloxacin": {
+      "n_genomes": 40,
+      "n_clusters": 32,
+      "overall": {
+        "balanced_accuracy": 0.95,
+        "resistant_recall": 0.9,
+        "susceptible_recall": 1.0,
+        "f1": 0.9473684210526315,
+        "auroc": 0.9466666666666665,
+        "pr_auc": 0.9534090909090909,
+        "brier": 0.031223128366213167
+      },
+      "per_group": {
+        "0": {
+          "n": 2,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "1": {
+          "n": 2,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "2": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.013224332579336903
+        },
+        "3": {
+          "n": 2,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "4": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "5": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0009615527524742952
+        },
+        "6": {
+          "n": 3,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "7": {
+          "n": 4,
+          "balanced_accuracy": 0.5,
+          "resistant_recall": 0.0,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": 0.5,
+          "pr_auc": 0.625,
+          "brier": 0.25
+        },
+        "8": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "9": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "10": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "11": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.23473924931671547
+        },
+        "12": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "13": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "14": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "15": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "16": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "17": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "18": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "19": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": 1.0,
+          "susceptible_recall": null,
+          "f1": 1.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "20": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "21": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "22": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "23": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "24": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "25": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "26": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "27": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "28": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "29": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "30": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "31": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        }
+      }
+    },
+    "gentamicin": {
+      "n_genomes": 40,
+      "n_clusters": 32,
+      "overall": {
+        "balanced_accuracy": 0.4857142857142857,
+        "resistant_recall": 0.0,
+        "susceptible_recall": 0.9714285714285714,
+        "f1": 0.0,
+        "auroc": 0.4714285714285714,
+        "pr_auc": 0.0625,
+        "brier": 0.1376503503722545
+      },
+      "per_group": {
+        "0": {
+          "n": 2,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "1": {
+          "n": 2,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "2": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "3": {
+          "n": 2,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "4": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": 0.0,
+          "susceptible_recall": null,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 1.0
+        },
+        "5": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": null,
+          "susceptible_recall": 0.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.504252571035547
+        },
+        "6": {
+          "n": 3,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "7": {
+          "n": 4,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "8": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": 0.0,
+          "susceptible_recall": null,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 1.0
+        },
+        "9": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "10": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "11": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0017614438546333531
+        },
+        "12": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "13": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": 0.0,
+          "susceptible_recall": null,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 1.0
+        },
+        "14": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "15": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": 0.0,
+          "susceptible_recall": null,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 1.0
+        },
+        "16": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "17": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "18": {
+          "n": 1,
+          "balanced_accuracy": 0.0,
+          "resistant_recall": 0.0,
+          "susceptible_recall": null,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 1.0
+        },
+        "19": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "20": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "21": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "22": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "23": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "24": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "25": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "26": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "27": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "28": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "29": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "30": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        },
+        "31": {
+          "n": 1,
+          "balanced_accuracy": 1.0,
+          "resistant_recall": null,
+          "susceptible_recall": 1.0,
+          "f1": 0.0,
+          "auroc": null,
+          "pr_auc": null,
+          "brier": 0.0
+        }
+      }
+    }
+  },
+  "skipped_drugs": {},
+  "config": {
+    "seed": 1234,
+    "output_dir": "module2_out",
+    "inputs": {
+      "feature_matrix": "/Users/timmyhsu/Programming/HackNation2026/data/bvbrc_ecoli/module1_out/features_binary.parquet",
+      "feature_schema": "/Users/timmyhsu/Programming/HackNation2026/data/bvbrc_ecoli/module1_out/feature_schema.json",
+      "labels": "/Users/timmyhsu/Programming/HackNation2026/data/bvbrc_ecoli/labels.csv",
+      "target_gene_table": "/Users/timmyhsu/Programming/HackNation2026/data/bvbrc_ecoli/target_genes.csv"
+    },
+    "distance": {
+      "method": "jaccard",
+      "mash_sketch_dir": null,
+      "cluster_threshold": 0.05
+    },
+    "cv": {
+      "n_splits": 5,
+      "calibration_fraction": 0.25,
+      "min_per_class": 3
+    },
+    "model": {
+      "C": 1.0,
+      "max_iter": 2000
+    },
+    "ood": {
+      "threshold": 0.5
+    },
+    "decision": {
+      "min_confidence": 0.65
+    },
+    "drugs": {
+      "ciprofloxacin": {
+        "target_genes": [
+          "gyrA",
+          "parC"
+        ],
+        "on_target_absent": "no_call"
+      },
+      "ampicillin": {
+        "target_genes": [
+          "ftsI"
+        ],
+        "on_target_absent": "no_call"
+      },
+      "gentamicin": {
+        "target_genes": [
+          "rpsL"
+        ],
+        "on_target_absent": "no_call"
+      }
+    }
+  },
+  "versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "pyarrow": "19.0.0",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.0",
+    "joblib": "1.4.2"
+  }
+}

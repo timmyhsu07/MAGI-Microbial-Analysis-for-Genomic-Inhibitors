@@ -7,6 +7,7 @@ import math
 import os
 import tempfile
 from dataclasses import asdict, replace
+from pathlib import Path
 from typing import Any, Iterable
 
 import pandas as pd
@@ -285,7 +286,7 @@ def render_evidence_detail(decision: DrugDecision, config: DecisionConfig) -> No
     with st.expander("Evidence detail"):
         st.markdown("**Supporting hits**")
         if decision.supporting_hits:
-            st.dataframe(_hits_frame(decision), width="stretch", hide_index=True)
+            st.dataframe(_hits_frame(decision), use_container_width=True, hide_index=True)
         else:
             st.write("No supporting hits.")
         render_features(decision)
@@ -373,6 +374,28 @@ def _text_from_sequence(values: Iterable[str]) -> tuple[str, ...]:
     return tuple(value.strip() for value in values if value.strip())
 
 
+# Repo-relative location of the demo artifacts produced by
+# scripts/fetch_bvbrc_ecoli.py + Module 1 + Module 2 (see README). Prefilling
+# these means real mode loads with zero typing on stage; each is overridable via
+# an env var for a non-default deployment.
+_DEFAULT_DATA_SUBDIR = "data/bvbrc_ecoli"
+
+
+def _repo_root() -> Path:
+    # app.py lives at module3_decision_report/src/decision_report/app.py
+    return Path(__file__).resolve().parents[3]
+
+
+def _demo_defaults() -> dict[str, str]:
+    data = _repo_root() / _DEFAULT_DATA_SUBDIR
+    return {
+        "models_dir": os.environ.get("GENOME_FIREWALL_MODELS_DIR", str(data / "module2_out" / "models")),
+        "target_gene_table": os.environ.get("GENOME_FIREWALL_TARGETS", str(data / "target_genes.csv")),
+        "module1_output_dir": os.environ.get("GENOME_FIREWALL_MODULE1_OUT", str(data / "module1_out")),
+        "species": os.environ.get("GENOME_FIREWALL_SPECIES", "Escherichia coli"),
+    }
+
+
 def _sidebar() -> tuple[str, Any, Any, DecisionConfig, str]:
     """Render controls and return source, predictor, extractor, config, species."""
     st.sidebar.markdown("**Data source**")
@@ -392,10 +415,20 @@ def _sidebar() -> tuple[str, Any, Any, DecisionConfig, str]:
         extractor = MockFeatureExtractor()
     else:
         st.sidebar.write("Real mode reads existing Module 1 and Module 2 artifacts.")
-        models_dir = st.sidebar.text_input("Models directory")
-        target_gene_table = st.sidebar.text_input("Target gene table (CSV path)")
-        module1_output_dir = st.sidebar.text_input("Module 1 output directory")
-        species = st.sidebar.text_input("Species", value=MockPredictor().covered_species()[0])
+        defaults = _demo_defaults()
+        demo_ready = (
+            Path(defaults["module1_output_dir"]).exists()
+            and Path(defaults["target_gene_table"]).exists()
+            and Path(defaults["models_dir"]).exists()
+        )
+        if demo_ready:
+            st.sidebar.caption("Demo artifacts detected -- fields pre-filled. Pick a genome in the Clinical Report tab; no paths to type.")
+        else:
+            st.sidebar.caption("Demo artifacts not found. Run scripts/fetch_bvbrc_ecoli.py + Module 1 + Module 2 (see README), or edit the paths below.")
+        models_dir = st.sidebar.text_input("Models directory", value=defaults["models_dir"])
+        target_gene_table = st.sidebar.text_input("Target gene table (CSV path)", value=defaults["target_gene_table"])
+        module1_output_dir = st.sidebar.text_input("Module 1 output directory", value=defaults["module1_output_dir"])
+        species = st.sidebar.text_input("Species", value=defaults["species"])
         if models_dir and target_gene_table and module1_output_dir and species:
             try:
                 predictor = ModelPredictor(models_dir, target_gene_table, species)
@@ -492,8 +525,18 @@ def render_clinical_tab(source: str, predictor: Any, extractor: Any, config: Dec
                 st.session_state.pop("clinical_report", None)
                 st.error(f"The decision pipeline could not complete: {exc}")
     else:
-        st.write("Enter an identifier already present in the configured Module 1 feature store.")
-        identifier = st.text_input("Genome ID or original FASTA filename")
+        store_ids: list[str] = []
+        if extractor is not None and hasattr(extractor, "genome_ids"):
+            try:
+                store_ids = extractor.genome_ids()
+            except Exception:  # never let a store hiccup blank the tab
+                store_ids = []
+        if store_ids:
+            st.write("Pick a genome present in the configured Module 1 feature store.")
+            identifier = st.selectbox("Genome ID", store_ids)
+        else:
+            st.write("Enter an identifier already present in the configured Module 1 feature store.")
+            identifier = st.text_input("Genome ID or original FASTA filename")
         if st.button("Generate clinical report", type="primary"):
             if predictor is None or extractor is None:
                 report = None
@@ -564,7 +607,7 @@ def render_evaluation_tab() -> None:
         [{"metric": key, "value": _display_value(value)} for key, value in result.overall.items()]
     )
     st.markdown("**Overall performance**")
-    st.dataframe(overall_frame, width="stretch", hide_index=True)
+    st.dataframe(overall_frame, use_container_width=True, hide_index=True)
     no_call = result.overall.get("no_call_rate")
     if _finite_number(no_call):
         st.markdown(
@@ -574,15 +617,15 @@ def render_evaluation_tab() -> None:
         )
 
     st.markdown("**Per-drug performance**")
-    st.dataframe(result.per_drug, width="stretch", hide_index=True)
+    st.dataframe(result.per_drug, use_container_width=True, hide_index=True)
     st.markdown("**Performance by genetic group**")
-    st.dataframe(result.per_group, width="stretch", hide_index=True)
+    st.dataframe(result.per_group, use_container_width=True, hide_index=True)
     st.markdown("**Reliability by probability bin**")
     reliability = pd.DataFrame([asdict(item) for item in result.reliability])
     if reliability.empty:
         st.write("No reliability bins were available.")
     else:
-        st.dataframe(reliability, width="stretch", hide_index=True)
+        st.dataframe(reliability, use_container_width=True, hide_index=True)
 
 
 def main() -> None:

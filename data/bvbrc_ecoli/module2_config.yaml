@@ -1,0 +1,46 @@
+# Module 2 (Predictor) config for the REAL BV-BRC E. coli demo cohort.
+# Paths resolve relative to this file's directory unless absolute.
+# Produced/consumed by:
+#   scripts/fetch_bvbrc_ecoli.py  -> labels.csv, target_genes.csv, genomes/
+#   Module 1 (genome-reader)      -> module1_out/features_binary.parquet + schema
+#   Module 2 train (this config)  -> module2_out/models/*.joblib  (Module 3 real mode)
+
+seed: 1234
+output_dir: module2_out
+
+inputs:
+  feature_matrix: module1_out/features_binary.parquet
+  feature_schema: module1_out/feature_schema.json
+  labels: labels.csv
+  target_gene_table: target_genes.csv
+
+distance:
+  method: jaccard
+  mash_sketch_dir: null
+  cluster_threshold: 0.05
+
+cv:
+  n_splits: 5
+  calibration_fraction: 0.25
+  min_per_class: 3
+
+model:
+  C: 1.0
+  max_iter: 2000
+
+ood:
+  threshold: 0.5
+
+decision:
+  min_confidence: 0.65
+
+drugs:
+  ciprofloxacin:
+    target_genes: [gyrA, parC]
+    on_target_absent: no_call
+  ampicillin:
+    target_genes: [ftsI]
+    on_target_absent: no_call
+  gentamicin:
+    target_genes: [rpsL]
+    on_target_absent: no_call
