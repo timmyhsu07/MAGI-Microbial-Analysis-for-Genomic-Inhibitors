@@ -1,4 +1,4 @@
-"""Streamlit rendering surface for the GENOME FIREWALL decision report."""
+"""Streamlit rendering surface for the MAGI decision report."""
 
 from __future__ import annotations
 
@@ -53,6 +53,8 @@ NO_CALL_LABELS = {
 VIEW_ANALYZE = "analyze"
 VIEW_REPORT = "report"
 VIEW_EVALUATION = "evaluation"
+PRODUCT_NAME = "MAGI"
+PRODUCT_LONG_NAME = "Microbial Analysis for Genomic Inhibitors"
 
 
 def inject_styles() -> None:
@@ -559,10 +561,10 @@ def render_disclaimer() -> None:
 def render_hero() -> None:
     """Render the product identity and scope without relying on Streamlit's title."""
     st.markdown(
-        """
+        f"""
         <header class="hero-shell">
-          <div class="hero-eyebrow">HackNation 2026 · Antimicrobial resistance intelligence</div>
-          <h1 class="hero-title">Genome<br>Firewall</h1>
+          <div class="hero-eyebrow">{html.escape(PRODUCT_LONG_NAME)}</div>
+          <h1 class="hero-title">{html.escape(PRODUCT_NAME)}</h1>
           <p class="hero-copy">
             Evidence-aware antibiotic resistance screening from assembled bacterial genomes.
             Every result separates known mechanisms, statistical signals, and honest no-calls.
@@ -876,10 +878,10 @@ _DEFAULT_DATA_SUBDIR = "data/bvbrc_ecoli"
 def _demo_defaults() -> dict[str, str]:
     data = Path(__file__).resolve().parents[3] / _DEFAULT_DATA_SUBDIR
     return {
-        "models_dir": os.environ.get("GENOME_FIREWALL_MODELS_DIR", str(data / "module2_out" / "models")),
-        "target_gene_table": os.environ.get("GENOME_FIREWALL_TARGETS", str(data / "target_genes.csv")),
-        "module1_output_dir": os.environ.get("GENOME_FIREWALL_MODULE1_OUT", str(data / "module1_out")),
-        "species": os.environ.get("GENOME_FIREWALL_SPECIES", "Escherichia coli"),
+        "models_dir": os.environ.get("MAGI_MODELS_DIR", str(data / "module2_out" / "models")),
+        "target_gene_table": os.environ.get("MAGI_TARGET_GENES", str(data / "target_genes.csv")),
+        "module1_output_dir": os.environ.get("MAGI_MODULE1_OUT", str(data / "module1_out")),
+        "species": os.environ.get("MAGI_SPECIES", "Escherichia coli"),
     }
 
 
@@ -887,7 +889,7 @@ def _sidebar() -> tuple[str, Any, Any, DecisionConfig, str]:
     """Render the compact analysis controls and resolve the active pipeline."""
     st.sidebar.markdown(
         '<div class="sidebar-eyebrow">Analysis workspace</div>'
-        '<div class="sidebar-brand">Genome Firewall</div>',
+        f'<div class="sidebar-brand">{html.escape(PRODUCT_NAME)}</div>',
         unsafe_allow_html=True,
     )
     st.sidebar.markdown("**Data source**")
@@ -1177,7 +1179,11 @@ def render_evaluation_page() -> None:
 
 
 def main() -> None:
-    st.set_page_config(page_title="GENOME FIREWALL", page_icon="🧬", layout="wide")
+    st.set_page_config(
+        page_title=f"{PRODUCT_NAME} · {PRODUCT_LONG_NAME}",
+        page_icon="🧬",
+        layout="wide",
+    )
     inject_styles()
     active_view = st.session_state.get("active_view", VIEW_ANALYZE)
     if active_view not in {VIEW_ANALYZE, VIEW_REPORT, VIEW_EVALUATION}:

@@ -8,7 +8,15 @@ from pathlib import Path
 
 from streamlit.testing.v1 import AppTest
 
-from decision_report.app import VIEW_ANALYZE, inject_styles, render_navigation, render_probability
+from decision_report.app import (
+    PRODUCT_LONG_NAME,
+    PRODUCT_NAME,
+    VIEW_ANALYZE,
+    _demo_defaults,
+    inject_styles,
+    render_navigation,
+    render_probability,
+)
 from decision_report.config import DecisionConfig
 from decision_report.contracts import DecisionLabel, DrugDecision, EvidenceCategory, NoCallReason
 from decision_report.report import MANDATORY_DISCLAIMER
@@ -48,6 +56,28 @@ def test_mock_mode_is_labelled_as_demonstration_data():
 
     assert "DEMONSTRATION DATA" in text
     assert "not a real prediction" in text
+
+
+def test_magi_brand_is_rendered_consistently():
+    text = _all_text(_run_app())
+
+    assert PRODUCT_NAME in text
+    assert PRODUCT_LONG_NAME in text
+
+
+def test_magi_environment_variables_override_real_pipeline_defaults(monkeypatch):
+    expected = {
+        "models_dir": "/tmp/magi-models",
+        "target_gene_table": "/tmp/magi-targets.csv",
+        "module1_output_dir": "/tmp/magi-module1",
+        "species": "Escherichia coli",
+    }
+    monkeypatch.setenv("MAGI_MODELS_DIR", expected["models_dir"])
+    monkeypatch.setenv("MAGI_TARGET_GENES", expected["target_gene_table"])
+    monkeypatch.setenv("MAGI_MODULE1_OUT", expected["module1_output_dir"])
+    monkeypatch.setenv("MAGI_SPECIES", expected["species"])
+
+    assert _demo_defaults() == expected
 
 
 def test_theme_keeps_pastel_green_tokens_and_mobile_breakpoints(monkeypatch):

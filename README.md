@@ -1,10 +1,10 @@
-# GENOME FIREWALL
+# MAGI
 
-HackNation 2026 Summer Global AI Hackathon
+**Microbial Analysis for Genomic Inhibitors**
 
 A **read-only, defensive** antimicrobial-resistance (AMR) decision-support pipeline: given an already-assembled, QC'd bacterial genome FASTA, predict which of a small set of antibiotics are likely to work, and show the evidence behind every call. No module in this repo generates, designs, mutates, or optimizes a sequence or organism — every stage only reads and reasons about resistance determinants that already exist.
 
-> Full requirements audit, including what's still a gap: **[`AUDIT.md`](AUDIT.md)**.
+> Historical Phase 1 requirements audit: **[`AUDIT.md`](AUDIT.md)**. The current implementation and limitations are summarized below.
 
 ## The three modules, and how they actually connect
 
@@ -63,14 +63,17 @@ That script trains Module 2, wires the trained artifacts through `real_pipeline`
 ## Quickstart per module
 
 ```bash
-# Module 1 (needs AMRFinderPlus installed -- see module1_genome_reader/README.md)
-cd module1_genome_reader && make || true   # see its own README for the real make targets
+# Module 1 mock run (see its README for a real AMRFinderPlus run)
+(cd module1_genome_reader \
+  && python3 -m venv .venv \
+  && .venv/bin/pip install -e '.[test]' \
+  && .venv/bin/python scripts/demo_mock_run.py)
 
 # Module 2 (no external tool needed; trains on its own synthetic fixture corpus)
-cd module2_predictor && make venv && make fixtures && make test && make train
+(cd module2_predictor && make venv && make fixtures && make test && make train)
 
-# Module 3 standalone (mock pipeline, zero real artifacts needed)
-cd module3_decision_report && make venv && make test && make demo
+# MAGI web app (mock pipeline, zero real artifacts needed)
+(cd module3_decision_report && make venv && make test && make app)
 
 # The real, interconnected pipeline (from the repo root)
 pip install -e module2_predictor -e 'module3_decision_report[test]'
@@ -85,7 +88,7 @@ python scripts/demo_real_pipeline.py
 
 ## Honest limitations (see `AUDIT.md` for full detail and file:line evidence)
 
-- **No Streamlit/Gradio app.** Module 3's decision/evidence/disclaimer logic is real and tested, but the only user-facing surface today is a CLI (`decision-report demo|evaluate|report`). This is the single largest remaining gap.
+- **The Streamlit UI defaults to demonstration mode.** Real-pipeline results require existing Module 1 output plus trained Module 2 model and target-gene artifacts. The interface labels mock output as demonstration data and keeps it separate from real-pipeline provenance.
 - **Module 1 does not capture drug-target presence.** The target-gene table the gate depends on (`target_genes.csv`) is a hand-curated Module 2 input, not something any real annotation step produces. In a real deployment this table would need a genuine source.
 - **The de-duplication distance is a documented proxy.** Jaccard distance over the AMR feature matrix stands in for a real Mash whole-genome distance; Mash support is fail-fast (never silently substituted) but not implemented.
 - **A cross-validated evaluation metric can leak.** The out-of-distribution reference set used while computing *reported* metrics during cross-validation can include other same-fold test genomes, which may understate how often a genuinely novel genome should be flagged OOD. Does not affect the deployed model artifact, only the honesty of `metrics_report.json`'s numbers. Not yet fixed — see `AUDIT.md`.
@@ -97,6 +100,6 @@ python scripts/demo_real_pipeline.py
 |---|---|
 | [`module1_genome_reader/`](module1_genome_reader/README.md) | FASTA → AMR feature matrix via AMRFinderPlus |
 | [`module2_predictor/`](module2_predictor/README.md) | Leakage-safe, calibrated, per-drug resistance models + deterministic target gate |
-| [`module3_decision_report/`](module3_decision_report/README.md) | Decision/evidence layer + CLI; `mock_pipeline.py` for standalone demos, `real_pipeline.py` for the real thing |
+| [`module3_decision_report/`](module3_decision_report/README.md) | Decision/evidence layer + Streamlit UI and CLI; `mock_pipeline.py` for standalone demos, `real_pipeline.py` for the real thing |
 | [`scripts/demo_real_pipeline.py`](scripts/demo_real_pipeline.py) | Reproducible end-to-end demo of the real (non-mock) pipeline |
-| [`AUDIT.md`](AUDIT.md) | Full requirements audit against the hackathon brief, with file:line evidence |
+| [`AUDIT.md`](AUDIT.md) | Historical Phase 1 requirements snapshot, with file:line evidence |

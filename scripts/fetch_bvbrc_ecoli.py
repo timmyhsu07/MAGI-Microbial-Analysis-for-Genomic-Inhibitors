@@ -89,7 +89,7 @@ def _get(path: str, accept: str = "application/json", retries: int = 4, timeout:
     for attempt in range(retries):
         req = urllib.request.Request(
             url,
-            headers={"Accept": accept, "User-Agent": "genome-firewall-demo/1.0 (+hacknation)"},
+            headers={"Accept": accept, "User-Agent": "magi-microbial-analysis/1.0"},
         )
         try:
             with urllib.request.urlopen(req, timeout=timeout, context=_SSL_CTX) as resp:

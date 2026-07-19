@@ -1,10 +1,10 @@
-# GENOME FIREWALL — Requirements Audit (Phase 1)
+# MAGI — Requirements Audit (Phase 1 Snapshot)
 
+> **Historical snapshot:** the findings below record the repository at the end of Phase 1 and are not a current status report. MAGI now includes a tested Streamlit interface, a real Module 1/2-to-Module 3 adapter, explicit no-call reporting, and the follow-up fixes summarized in the root [`README.md`](README.md). The original rows remain unchanged to preserve the audit trail.
+>
 > **Update, post-Phase-1:** at the user's direction, two findings below were fixed before Phase 2/3 formally began, ahead of the original phase gating:
 > 1. **Cross-cutting finding #1 ("Modules 2 and 3 have never been run together")** is resolved. `module3_decision_report/src/decision_report/real_pipeline.py` now implements Module 3's `FeatureExtractor`/`Predictor` protocols against real Module 1 output and real Module 2 `.joblib` artifacts, proven by `module3_decision_report/tests/test_real_pipeline.py` (5 passing tests, no mocks) and `scripts/demo_real_pipeline.py`. `covered_drugs()` is now derived from the trained artifacts rather than hardcoded, which also resolves the SCOPE-table finding that the covered drug set was declared twice, inconsistently.
 > 2. **The `on_target_absent: "susceptible"` footgun** (Module 02 row, "Deterministic target gate") is resolved. `module2_predictor/src/predictor/config.py` now rejects `"susceptible"` at config-validation time; `contracts/model_artifact.schema.json`'s enum was updated to match; a test (`module2_predictor/tests/test_config.py`) covers both the rejection and the two remaining safe values.
->
-> Everything else in this document (the Streamlit/Gradio gap, Module 1's missing target-gene capture, the OOD cross-fold evaluation leak, the missing explicit `no_call_rate` field, etc.) is **unchanged and still open** — see the root `README.md`'s "Honest limitations" section for the current, up-to-date summary of what remains.
 
 **Scope of this document:** read-only audit. Nothing in the codebase was changed to produce this report. Every claim below cites a `file:line`; where no citation could be produced, the status is MISSING regardless of what a docstring or README claims.
 

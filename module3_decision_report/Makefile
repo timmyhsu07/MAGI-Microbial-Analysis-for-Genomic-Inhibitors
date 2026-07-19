@@ -1,7 +1,7 @@
 # Module 3 (The Decision Report). Everything reproducible from these targets.
 #
 # The venv is created with uv; if you don't have uv, a plain
-# `python -m venv .venv && .venv/bin/pip install -e '.[test]'` works too.
+# `python -m venv .venv && .venv/bin/pip install -e '.[app,test]'` works too.
 
 VENV := .venv
 PY := $(VENV)/bin/python
@@ -10,7 +10,7 @@ PY := $(VENV)/bin/python
 
 venv:
 	uv venv --python 3.11 $(VENV)
-	uv pip install --python $(PY) -e '.[test]'
+	uv pip install --python $(PY) -e '.[app,test]'
 
 # The acceptance gate for this module.
 test:
