@@ -1,0 +1,137 @@
+{
+  "genome_id": "demo_known_mechanism",
+  "species": "Escherichia coli",
+  "species_supported": true,
+  "decisions": [
+    {
+      "drug": "Ciprofloxacin",
+      "label": "likely to fail",
+      "evidence_category": "known_resistance_mechanism",
+      "calibrated_prob_resistant": 0.95,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.12,
+      "supporting_hits": [
+        {
+          "element_symbol": "gyrA_S83L",
+          "element_type": "AMR",
+          "element_subtype": "point_mutation",
+          "method": "POINTX",
+          "drug_class": "QUINOLONE",
+          "pct_identity": 99.5,
+          "pct_coverage": 100.0
+        }
+      ],
+      "top_features": [
+        {
+          "name": "gyrA_S83L",
+          "contribution": 0.5,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.95 exceeds 0.60.",
+      "caveats": []
+    },
+    {
+      "drug": "Ampicillin",
+      "label": "likely to fail",
+      "evidence_category": "known_resistance_mechanism",
+      "calibrated_prob_resistant": 0.93,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.12,
+      "supporting_hits": [
+        {
+          "element_symbol": "blaTEM-1",
+          "element_type": "AMR",
+          "element_subtype": "acquired_gene",
+          "method": "EXACTX",
+          "drug_class": "BETA-LACTAM",
+          "pct_identity": 99.5,
+          "pct_coverage": 100.0
+        }
+      ],
+      "top_features": [
+        {
+          "name": "blaTEM-1",
+          "contribution": 0.48,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.93 exceeds 0.60.",
+      "caveats": []
+    },
+    {
+      "drug": "Gentamicin",
+      "label": "likely to work",
+      "evidence_category": "no_known_resistance_signal",
+      "calibrated_prob_resistant": 0.08,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.1,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "absent_marker",
+          "contribution": -0.2,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.08 is below 0.40.",
+      "caveats": []
+    },
+    {
+      "drug": "Trimethoprim-sulfamethoxazole",
+      "label": "likely to work",
+      "evidence_category": "no_known_resistance_signal",
+      "calibrated_prob_resistant": 0.08,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.1,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "absent_marker",
+          "contribution": -0.2,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.08 is below 0.40.",
+      "caveats": []
+    },
+    {
+      "drug": "Colistin",
+      "label": "likely to work",
+      "evidence_category": "no_known_resistance_signal",
+      "calibrated_prob_resistant": 0.08,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.1,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "absent_marker",
+          "contribution": -0.2,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.08 is below 0.40.",
+      "caveats": []
+    }
+  ],
+  "covered_drugs": [
+    "Ciprofloxacin",
+    "Ampicillin",
+    "Gentamicin",
+    "Trimethoprim-sulfamethoxazole",
+    "Colistin"
+  ],
+  "uncovered_drugs_requested": [],
+  "disclaimer": "DECISION SUPPORT ONLY - every result must be confirmed by standard laboratory antimicrobial susceptibility testing. This tool does not make treatment decisions and requires trained human oversight.",
+  "errors": []
+}

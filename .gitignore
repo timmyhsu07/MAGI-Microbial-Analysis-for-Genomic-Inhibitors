@@ -4,3 +4,9 @@ __pycache__/
 *.egg-info/
 .pytest_cache/
 module1_genome_reader/example_run/
+
+# Local conda/mamba environment (multi-GB, machine-specific)
+.mamba/
+
+# AMR reference database (large, downloadable separately)
+module1_genome_reader/amrdb/

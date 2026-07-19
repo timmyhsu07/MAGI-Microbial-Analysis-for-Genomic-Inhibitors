@@ -6,7 +6,7 @@
 VENV := .venv
 PY := $(VENV)/bin/python
 
-.PHONY: venv test demo evaluate clean
+.PHONY: venv test demo evaluate app clean
 
 venv:
 	uv venv --python 3.11 $(VENV)
@@ -23,6 +23,10 @@ demo:
 # Run the synthetic held-out evaluation panel.
 evaluate:
 	$(PY) -m decision_report.cli evaluate
+
+# Run the Streamlit decision-report interface.
+app:
+	$(PY) -m streamlit run src/decision_report/app.py
 
 clean:
 	rm -rf out .pytest_cache

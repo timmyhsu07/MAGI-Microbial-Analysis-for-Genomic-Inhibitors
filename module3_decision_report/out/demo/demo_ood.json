@@ -1,0 +1,132 @@
+{
+  "genome_id": "demo_ood",
+  "species": "Escherichia coli",
+  "species_supported": true,
+  "decisions": [
+    {
+      "drug": "Ciprofloxacin",
+      "label": "no-call",
+      "evidence_category": "statistical_association_only",
+      "calibrated_prob_resistant": 0.85,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": "genome is unlike the training data (high OOD score)",
+      "ood_score": 0.92,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "kmer_7",
+          "contribution": 0.2,
+          "is_known_mechanism": false
+        }
+      ],
+      "rationale": "OOD score 0.92 >= threshold 0.80; genome is unlike the training data.",
+      "caveats": [
+        "Association-only evidence: drivers are not curated resistance mechanisms; treat as correlation, not proven cause.",
+        "Feature importance/SHAP reflects statistical association with the label, NOT biological causation."
+      ]
+    },
+    {
+      "drug": "Ampicillin",
+      "label": "no-call",
+      "evidence_category": "statistical_association_only",
+      "calibrated_prob_resistant": 0.85,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": "genome is unlike the training data (high OOD score)",
+      "ood_score": 0.92,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "kmer_7",
+          "contribution": 0.2,
+          "is_known_mechanism": false
+        }
+      ],
+      "rationale": "OOD score 0.92 >= threshold 0.80; genome is unlike the training data.",
+      "caveats": [
+        "Association-only evidence: drivers are not curated resistance mechanisms; treat as correlation, not proven cause.",
+        "Feature importance/SHAP reflects statistical association with the label, NOT biological causation."
+      ]
+    },
+    {
+      "drug": "Gentamicin",
+      "label": "no-call",
+      "evidence_category": "statistical_association_only",
+      "calibrated_prob_resistant": 0.85,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": "genome is unlike the training data (high OOD score)",
+      "ood_score": 0.92,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "kmer_7",
+          "contribution": 0.2,
+          "is_known_mechanism": false
+        }
+      ],
+      "rationale": "OOD score 0.92 >= threshold 0.80; genome is unlike the training data.",
+      "caveats": [
+        "Association-only evidence: drivers are not curated resistance mechanisms; treat as correlation, not proven cause.",
+        "Feature importance/SHAP reflects statistical association with the label, NOT biological causation."
+      ]
+    },
+    {
+      "drug": "Trimethoprim-sulfamethoxazole",
+      "label": "no-call",
+      "evidence_category": "statistical_association_only",
+      "calibrated_prob_resistant": 0.85,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": "genome is unlike the training data (high OOD score)",
+      "ood_score": 0.92,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "kmer_7",
+          "contribution": 0.2,
+          "is_known_mechanism": false
+        }
+      ],
+      "rationale": "OOD score 0.92 >= threshold 0.80; genome is unlike the training data.",
+      "caveats": [
+        "Association-only evidence: drivers are not curated resistance mechanisms; treat as correlation, not proven cause.",
+        "Feature importance/SHAP reflects statistical association with the label, NOT biological causation."
+      ]
+    },
+    {
+      "drug": "Colistin",
+      "label": "no-call",
+      "evidence_category": "statistical_association_only",
+      "calibrated_prob_resistant": 0.85,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": "genome is unlike the training data (high OOD score)",
+      "ood_score": 0.92,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "kmer_7",
+          "contribution": 0.2,
+          "is_known_mechanism": false
+        }
+      ],
+      "rationale": "OOD score 0.92 >= threshold 0.80; genome is unlike the training data.",
+      "caveats": [
+        "Association-only evidence: drivers are not curated resistance mechanisms; treat as correlation, not proven cause.",
+        "Feature importance/SHAP reflects statistical association with the label, NOT biological causation."
+      ]
+    }
+  ],
+  "covered_drugs": [
+    "Ciprofloxacin",
+    "Ampicillin",
+    "Gentamicin",
+    "Trimethoprim-sulfamethoxazole",
+    "Colistin"
+  ],
+  "uncovered_drugs_requested": [],
+  "disclaimer": "DECISION SUPPORT ONLY - every result must be confirmed by standard laboratory antimicrobial susceptibility testing. This tool does not make treatment decisions and requires trained human oversight.",
+  "errors": []
+}

@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.0.0",
+  "pipeline_version": "0.1.0",
+  "generated_at": "2026-07-18T21:15:19Z",
+  "matrix": {
+    "id_column": "genome_id",
+    "value_encoding": "presence_absence",
+    "value_domain": [
+      0,
+      1
+    ],
+    "dtype": "int8",
+    "n_genomes": 2,
+    "n_features": 7,
+    "included_element_types": [
+      "AMR"
+    ],
+    "column_order": "ascending lexicographic by element_symbol",
+    "unseen_feature_policy": "dropped_and_logged",
+    "unseen_feature_policy_detail": "At inference time the feature columns are FIXED to this manifest. A gene/mutation not present here is dropped from the feature vector and logged; the matrix column set never grows from unseen genomes. A known column absent in a new genome is encoded 0."
+  },
+  "provenance": {
+    "organism": "Escherichia",
+    "use_plus": true,
+    "amrfinderplus_software_version": "4.2.7",
+    "amrfinderplus_database_version": "2026-05-15.1"
+  },
+  "columns": [
+    {
+      "column": "acrF",
+      "element_symbol": "acrF",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "EFFLUX"
+      ],
+      "drug_subclasses": [
+        "EFFLUX"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "blaEC",
+      "element_symbol": "blaEC",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "BETA-LACTAM"
+      ],
+      "drug_subclasses": [
+        "BETA-LACTAM"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "mdsA",
+      "element_symbol": "mdsA",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "EFFLUX"
+      ],
+      "drug_subclasses": [
+        "EFFLUX"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "mdsB",
+      "element_symbol": "mdsB",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "EFFLUX"
+      ],
+      "drug_subclasses": [
+        "EFFLUX"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "mdtM",
+      "element_symbol": "mdtM",
+      "feature_kind": "acquired_gene",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "AMR"
+      ],
+      "drug_classes": [
+        "EFFLUX"
+      ],
+      "drug_subclasses": [
+        "EFFLUX"
+      ],
+      "methods_observed": [
+        "EXACTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "parC_S57T",
+      "element_symbol": "parC_S57T",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "QUINOLONE"
+      ],
+      "drug_subclasses": [
+        "QUINOLONE"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    },
+    {
+      "column": "uhpT_E350Q",
+      "element_symbol": "uhpT_E350Q",
+      "feature_kind": "point_mutation",
+      "element_type": "AMR",
+      "element_types_observed": [
+        "AMR"
+      ],
+      "element_subtypes_observed": [
+        "POINT"
+      ],
+      "drug_classes": [
+        "FOSFOMYCIN"
+      ],
+      "drug_subclasses": [
+        "FOSFOMYCIN"
+      ],
+      "methods_observed": [
+        "POINTX"
+      ],
+      "n_genomes_present": 1
+    }
+  ]
+}

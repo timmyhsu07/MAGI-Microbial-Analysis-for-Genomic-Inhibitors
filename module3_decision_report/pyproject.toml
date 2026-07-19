@@ -17,6 +17,7 @@ dependencies = [
 
 [project.optional-dependencies]
 test = ["pytest>=7.0"]
+app = ["streamlit>=1.40"]
 
 [project.scripts]
 decision-report = "decision_report.cli:main"

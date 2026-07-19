@@ -1,0 +1,11 @@
+{
+  "n_predictions": 300,
+  "balanced_accuracy": 0.9666666666666667,
+  "recall_resistant": 0.9333333333333333,
+  "recall_susceptible": 1.0,
+  "f1_resistant": 0.9655172413793104,
+  "brier": 0.06199543468282829,
+  "no_call_rate": 0.19333333333333333,
+  "accuracy_on_called": 0.9752066115702479,
+  "n_called": 242
+}

@@ -160,6 +160,19 @@ pytest -v
 - `test_end_to_end.py` — all 8 crafted demo cases resolve to the decision
   branch their description claims, through the real orchestration
 
+## Running the app
+
+Install the optional Streamlit dependency and start the decision-report UI:
+
+```bash
+pip install -e '.[app]'
+make app
+```
+
+The app opens with the eight zero-setup mock cases. Real-pipeline mode accepts
+paths to existing Module 1 output and Module 2 model/target artifacts; it does
+not generate or modify those artifacts.
+
 ## Limitations & scope
 
 - **Decision support only.** No label here is a treatment decision; every

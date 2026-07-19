@@ -1,0 +1,10 @@
+{
+  "amrfinder_database_version": "2026-05-15.1",
+  "amrfinder_software_version": "4.2.7",
+  "cache_schema": 1,
+  "genome_id": "GCF_000005845.2",
+  "input_sha256": "53bb6a51b6e92139ced1e38f74b7938781027c52200922ff03718c2237d23bb4",
+  "mode": "nucleotide",
+  "organism": "Escherichia",
+  "use_plus": true
+}

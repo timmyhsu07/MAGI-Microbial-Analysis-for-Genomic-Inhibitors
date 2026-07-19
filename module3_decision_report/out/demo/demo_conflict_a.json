@@ -1,0 +1,127 @@
+{
+  "genome_id": "demo_conflict_a",
+  "species": "Escherichia coli",
+  "species_supported": true,
+  "decisions": [
+    {
+      "drug": "Ciprofloxacin",
+      "label": "no-call",
+      "evidence_category": "known_resistance_mechanism",
+      "calibrated_prob_resistant": 0.2,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": "model and mechanistic evidence disagree",
+      "ood_score": 0.15,
+      "supporting_hits": [
+        {
+          "element_symbol": "gyrA_S83L",
+          "element_type": "AMR",
+          "element_subtype": "point_mutation",
+          "method": "POINTX",
+          "drug_class": "QUINOLONE",
+          "pct_identity": 99.5,
+          "pct_coverage": 100.0
+        }
+      ],
+      "top_features": [
+        {
+          "name": "gyrA_S83L",
+          "contribution": 0.4,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "A curated known resistance mechanism was detected, but the model leans susceptible (prob 0.20). Deferring to human review.",
+      "caveats": []
+    },
+    {
+      "drug": "Ampicillin",
+      "label": "likely to work",
+      "evidence_category": "no_known_resistance_signal",
+      "calibrated_prob_resistant": 0.08,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.1,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "absent_marker",
+          "contribution": -0.2,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.08 is below 0.40.",
+      "caveats": []
+    },
+    {
+      "drug": "Gentamicin",
+      "label": "likely to work",
+      "evidence_category": "no_known_resistance_signal",
+      "calibrated_prob_resistant": 0.08,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.1,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "absent_marker",
+          "contribution": -0.2,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.08 is below 0.40.",
+      "caveats": []
+    },
+    {
+      "drug": "Trimethoprim-sulfamethoxazole",
+      "label": "likely to work",
+      "evidence_category": "no_known_resistance_signal",
+      "calibrated_prob_resistant": 0.08,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.1,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "absent_marker",
+          "contribution": -0.2,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.08 is below 0.40.",
+      "caveats": []
+    },
+    {
+      "drug": "Colistin",
+      "label": "likely to work",
+      "evidence_category": "no_known_resistance_signal",
+      "calibrated_prob_resistant": 0.08,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.1,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "absent_marker",
+          "contribution": -0.2,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.08 is below 0.40.",
+      "caveats": []
+    }
+  ],
+  "covered_drugs": [
+    "Ciprofloxacin",
+    "Ampicillin",
+    "Gentamicin",
+    "Trimethoprim-sulfamethoxazole",
+    "Colistin"
+  ],
+  "uncovered_drugs_requested": [],
+  "disclaimer": "DECISION SUPPORT ONLY - every result must be confirmed by standard laboratory antimicrobial susceptibility testing. This tool does not make treatment decisions and requires trained human oversight.",
+  "errors": []
+}

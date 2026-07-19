@@ -1,0 +1,98 @@
+{
+  "run_id": "c4ab17197a34deee",
+  "pipeline_version": "0.1.0",
+  "schema_version": "1.0.0",
+  "started_at": "2026-07-18T21:12:36Z",
+  "finished_at": "2026-07-18T21:15:19Z",
+  "config": {
+    "input_dir": "fixtures/genomes",
+    "output_dir": "out_real",
+    "organism": "Escherichia",
+    "amrfinder_bin": "amrfinder",
+    "database_dir": "amrdb/latest",
+    "use_plus": true,
+    "amrfinder_threads": 1,
+    "workers": 2,
+    "reuse_cache": true,
+    "cache_dir": null,
+    "allow_partial": true,
+    "nucleotide_extensions": [
+      ".fasta",
+      ".fa",
+      ".fna",
+      ".fas",
+      ".seq"
+    ],
+    "protein_extensions": [
+      ".faa",
+      ".fpaa"
+    ],
+    "protein_handling": "skip",
+    "include_element_types": [
+      "AMR"
+    ],
+    "unseen_feature_policy": "dropped_and_logged",
+    "run_id": "c4ab17197a34deee"
+  },
+  "tools": {
+    "amrfinderplus": {
+      "software_version": "4.2.7",
+      "database_version": "2026-05-15.1",
+      "binary": "/Users/wowands/repos/hacknation-genome-analysis/.mamba/envs/amrfinder/bin/amrfinder",
+      "database_dir": "amrdb/latest"
+    },
+    "dependencies": {
+      "blastn": "2.16.0",
+      "blastx": "2.16.0",
+      "hmmer": "3.4"
+    },
+    "python": {
+      "version": "3.14.2",
+      "implementation": "CPython",
+      "pandas": "3.0.3",
+      "pyarrow": "25.0.0"
+    },
+    "platform": {
+      "system": "Darwin",
+      "release": "24.3.0",
+      "machine": "arm64"
+    }
+  },
+  "counts": {
+    "n_genomes_discovered": 2,
+    "n_genomes_in_matrix": 2,
+    "n_features": 7,
+    "n_hits_total": 61,
+    "status_breakdown": {
+      "annotated": 2
+    }
+  },
+  "inputs": [
+    {
+      "genome_id": "GCF_000005845.2",
+      "path": "fixtures/genomes/GCF_000005845.2.fna",
+      "sha256": "53bb6a51b6e92139ced1e38f74b7938781027c52200922ff03718c2237d23bb4",
+      "bytes": 4699745,
+      "seq_type": "nucleotide",
+      "n_sequences": 1,
+      "status": "annotated",
+      "included_in_matrix": true,
+      "n_hits": 5,
+      "annotation_seconds": 160.885,
+      "error": null
+    },
+    {
+      "genome_id": "GCF_000006945.2",
+      "path": "fixtures/genomes/GCF_000006945.2.fna",
+      "sha256": "196a3eff4e6e6ed597173cc15d9dbde4cd55d76ad4d1b046da34cd75629c65cd",
+      "bytes": 5013482,
+      "seq_type": "nucleotide",
+      "n_sequences": 2,
+      "status": "annotated",
+      "included_in_matrix": true,
+      "n_hits": 56,
+      "annotation_seconds": 118.666,
+      "error": null
+    }
+  ]
+}

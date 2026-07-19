@@ -1,0 +1,122 @@
+{
+  "genome_id": "demo_uncertainty",
+  "species": "Escherichia coli",
+  "species_supported": true,
+  "decisions": [
+    {
+      "drug": "Ciprofloxacin",
+      "label": "likely to work",
+      "evidence_category": "no_known_resistance_signal",
+      "calibrated_prob_resistant": 0.08,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.1,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "absent_marker",
+          "contribution": -0.2,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.08 is below 0.40.",
+      "caveats": []
+    },
+    {
+      "drug": "Ampicillin",
+      "label": "likely to work",
+      "evidence_category": "no_known_resistance_signal",
+      "calibrated_prob_resistant": 0.08,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.1,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "absent_marker",
+          "contribution": -0.2,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.08 is below 0.40.",
+      "caveats": []
+    },
+    {
+      "drug": "Gentamicin",
+      "label": "no-call",
+      "evidence_category": "statistical_association_only",
+      "calibrated_prob_resistant": 0.52,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": "calibrated probability inside the uncertainty band",
+      "ood_score": 0.15,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "kmer_42",
+          "contribution": 0.11,
+          "is_known_mechanism": false
+        }
+      ],
+      "rationale": "Calibrated probability 0.52 is inside the uncertainty band [0.40, 0.60].",
+      "caveats": [
+        "Association-only evidence: drivers are not curated resistance mechanisms; treat as correlation, not proven cause.",
+        "Feature importance/SHAP reflects statistical association with the label, NOT biological causation."
+      ]
+    },
+    {
+      "drug": "Trimethoprim-sulfamethoxazole",
+      "label": "likely to work",
+      "evidence_category": "no_known_resistance_signal",
+      "calibrated_prob_resistant": 0.08,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.1,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "absent_marker",
+          "contribution": -0.2,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.08 is below 0.40.",
+      "caveats": []
+    },
+    {
+      "drug": "Colistin",
+      "label": "likely to work",
+      "evidence_category": "no_known_resistance_signal",
+      "calibrated_prob_resistant": 0.08,
+      "target_present": true,
+      "intrinsic_resistance": false,
+      "no_call_reason": null,
+      "ood_score": 0.1,
+      "supporting_hits": [],
+      "top_features": [
+        {
+          "name": "absent_marker",
+          "contribution": -0.2,
+          "is_known_mechanism": true
+        }
+      ],
+      "rationale": "Calibrated probability of resistance 0.08 is below 0.40.",
+      "caveats": []
+    }
+  ],
+  "covered_drugs": [
+    "Ciprofloxacin",
+    "Ampicillin",
+    "Gentamicin",
+    "Trimethoprim-sulfamethoxazole",
+    "Colistin"
+  ],
+  "uncovered_drugs_requested": [],
+  "disclaimer": "DECISION SUPPORT ONLY - every result must be confirmed by standard laboratory antimicrobial susceptibility testing. This tool does not make treatment decisions and requires trained human oversight.",
+  "errors": [
+    "No features were extracted for this genome: every prediction is driven purely by the ABSENCE of markers. Interpret with extra caution and confirm by laboratory testing."
+  ]
+}
