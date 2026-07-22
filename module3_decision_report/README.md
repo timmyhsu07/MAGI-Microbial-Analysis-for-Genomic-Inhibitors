@@ -1,43 +1,30 @@
-# Module 3 — The Decision Report
+# Module 3: Decision Report
 
-Turns Module 2's per-drug predictions (plus Module 1's provenance) into a
-**human-facing, per-drug decision card**: `likely to fail` / `likely to work` /
-`no-call`, an honest evidence category, and a plain-language rationale — never
-a silent guess.
+Turns Module 2's per-drug predictions and Module 1's provenance into report
+cards with a label, evidence category, and plain-language rationale.
 
-> **Defensive scope.** This module only *interprets* predictions Module 2
-> already produced. It never makes a treatment decision, never designs,
-> modifies, or suggests changes to any organism, and every report ships with a
-> mandatory "confirm by laboratory testing" disclaimer.
->
-> **Module boundary.** No annotation (Module 1), no modeling/calibration/gating
-> (Module 2). Module 3 consumes a `FeatureBundle` (Module 1) and a
-> `Predictor.predict(...) -> list[DrugPrediction]` (Module 2) — see
-> [`contracts.py`](src/decision_report/contracts.py) for the exact typed
-> interfaces — and owns only the decision/evidence/report layer on top. It
-> ships mocks satisfying both interfaces
-> ([`mock_pipeline.py`](src/decision_report/mock_pipeline.py)) so it runs
-> standalone with zero real artifacts; point a real deployment's own Module 1/2
-> adapters at [`report.build_report`](src/decision_report/report.py) instead.
+Module 3 interprets existing predictions; it does not annotate genomes or train
+models. Every report includes a laboratory-confirmation disclaimer. The typed
+interfaces are defined in [`contracts.py`](src/decision_report/contracts.py),
+with mock and real implementations included in this package.
 
 ---
 
-## The three labels, honestly
+## Output labels
 
 | Label | Meaning |
 |---|---|
-| `likely to fail` | organism predicted **resistant** — the drug likely won't work |
+| `likely to fail` | organism predicted **resistant**; the drug may not work |
 | `likely to work` | organism predicted **susceptible** |
-| `no-call` | the evidence doesn't support a confident call — reported, not forced |
+| `no-call` | the available evidence does not support a confident call |
 
-A no-call is a **feature**, not a failure of the pipeline: it fires whenever
-the evidence is weak, conflicting, or the input is unlike anything in training,
-rather than let a model guess past its competence.
+A no-call is returned when evidence is weak or conflicting, or when an input is
+too different from the training data.
 
 ## Decision rules (first match wins)
 
-See [`decision.py`](src/decision_report/decision.py) for the implementation;
-the module docstring there is the source of truth. In order:
+See [`decision.py`](src/decision_report/decision.py) for the implementation.
+The rules run in this order:
 
 1. **Drug not covered** by the predictor → `NO_CALL(DRUG_NOT_COVERED)`
 2. **Probability missing/invalid** → `NO_CALL(INVALID_INPUT)` — refuse to guess
@@ -60,7 +47,7 @@ against.
 
 ## Evidence categories
 
-Every decision — including no-calls — is tagged with exactly one honest
+Every decision, including no-calls, is tagged with one
 evidence category ([`evidence.py`](src/decision_report/evidence.py)):
 
 - **(i) known_resistance_mechanism** — a curated determinant (exact gene /
@@ -128,22 +115,18 @@ features = store("genome_id_or_a_fasta_path")
 report = build_report(features, predictor, config, species="Escherichia coli")
 ```
 
-`Module1FeatureStore` loads a real Module 1 output directory once (binary
+`Module1FeatureStore` loads a Module 1 output directory once (binary
 matrix + schema, and the real per-hit `features_long.parquet` when present;
-otherwise it reconstructs hits from the schema's per-column metadata, flagged
-via `.used_reconstructed_hits` so that fallback is never mistaken for real
-provenance). `ModelPredictor` loads Module 2's `.joblib` artifacts and derives
-`covered_drugs()`/`ood_threshold()` from whatever was actually trained — never
-a second hardcoded list. Calibrated probability and the target-gate call come
-straight from `predictor.inference.predict_one_genome`, the same function
-Module 2 itself uses; Module 3 only adds feature-importance and a continuous
-OOD distance so it can own the final decision.
+otherwise it reconstructs hits from the schema metadata and sets
+`.used_reconstructed_hits`. `ModelPredictor` loads Module 2's `.joblib`
+artifacts and reads the covered drugs and OOD threshold from the saved models.
+Calibrated probabilities and target-gate calls come from
+`predictor.inference.predict_one_genome`.
 
 See [`../scripts/demo_real_pipeline.py`](../scripts/demo_real_pipeline.py) for
 a runnable end-to-end demo, and
-[`tests/test_real_pipeline.py`](tests/test_real_pipeline.py) for the proof
-that this actually works (trains Module 2 for real on its own fixtures, then
-runs the result through this module's real decision engine).
+[`tests/test_real_pipeline.py`](tests/test_real_pipeline.py) for the integration
+test that trains Module 2 on its fixtures and runs the results through Module 3.
 
 ## Testing
 
@@ -173,7 +156,7 @@ The app opens with the eight zero-setup mock cases. Real-pipeline mode accepts
 paths to existing Module 1 output and Module 2 model/target artifacts; it does
 not generate or modify those artifacts.
 
-## Limitations & scope
+## Limitations
 
 - **Decision support only.** No label here is a treatment decision; every
   report requires human confirmation by standard laboratory antimicrobial

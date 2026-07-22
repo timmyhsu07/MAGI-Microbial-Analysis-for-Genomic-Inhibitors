@@ -1,63 +1,52 @@
-# Module 2 — The Predictor
+# Module 2: Predictor
 
-Takes Module 1's binary AMR feature matrix and turns it into **calibrated,
-leakage-safe, per-drug resistance predictions** with a deterministic
+Takes Module 1's binary AMR feature matrix and produces calibrated per-drug
+resistance predictions with a deterministic
 molecular-target gate on top.
 
-> **Defensive scope.** This module only *reads* the resistance determinants an
-> assembled genome already carries and estimates a phenotype from them. It never
-> designs, modifies, or suggests changes to an organism. Every call ships with a
-> "confirm with standard lab testing" caveat for a reason (see *Limitations*).
->
-> **Module boundary.** No annotation (that is Module 1), no UI (that is Module
-> 3). Input is the feature matrix + a phenotype table + a target-gene table;
-> output is one model artifact per drug plus an auditable metrics/decision log.
+The inputs are a feature matrix, phenotype labels, and a target-gene table. The
+outputs are one model artifact per drug, evaluation metrics, and a decision log.
+Annotation is handled by Module 1 and presentation by Module 3.
 
 ---
 
 ## What it does, in order
 
-1. **Load & freeze the vocabulary.** The feature columns come from Module 1's
+1. **Freeze the feature vocabulary.** The feature columns come from Module 1's
    `feature_schema.json` and are frozen at train time. Inference maps any new
-   genome onto exactly these columns — the matrix is never reshaped, and genes
-   unseen at training are dropped and logged, never appended.
+   genome onto the same columns. Genes unseen during training are dropped and
+   logged rather than appended.
 2. **De-duplicate by genetic distance.** Near-identical isolates (re-sequenced
    or clonal) are collapsed into clusters so they can't straddle a train/test
    split. Offline this uses Jaccard distance over the AMR matrix; a real run can
-   use Mash (fail-fast if the binary/sketches are absent — we never silently
-   pass the proxy off as Mash).
+   use Mash when the binary and sketches are available.
 3. **Grouped cross-validation.** Whole clusters go to train **or** test, never
-   both. See [`tests/test_splits_no_leakage.py`](tests/test_splits_no_leakage.py)
-   — this is the guarantee the whole submission rests on.
+   both. See [`tests/test_splits_no_leakage.py`](tests/test_splits_no_leakage.py).
 4. **One model per drug.** An L2-penalised, class-weight-balanced logistic
    regression, trained only on the fold's fit clusters.
-5. **Honest calibration.** Isotonic regression fit on a *separate* calibration
-   cluster set within each fold — never the test fold — so the probabilities you
-   read mean what they say.
+5. **Calibrate probabilities.** Isotonic regression is fit on a separate
+   calibration cluster set within each fold, not on the test fold.
 6. **Deterministic target gate.** If a drug's molecular target gene is absent
    from a genome, the call is fixed regardless of what the model thinks, and the
    override is logged as its own decision source. `on_target_absent` may only be
    configured as `resistant` or `no_call` — `susceptible` is rejected by config
-   validation, because an absent target can never honestly mean "likely to work".
+   validation because target absence cannot imply susceptibility.
 7. **OOD guard.** A genome far from everything in the training set is flagged and
    returned as a no-call rather than a confident guess.
 
 Precedence for the final call: **target gate → OOD → low-confidence → model.**
-The model call and every override are recorded separately in `decisions.csv`, so
-nothing is a black box.
+`decisions.csv` records the raw model call and each override separately.
 
 ## De-duplication threshold
 
 `distance.cluster_threshold` defaults to **0.05** (single-linkage). At Jaccard
 0.05 two genomes share ~95% of their detected determinants, which is where
-re-sequenced/clonal isolates sit; genuinely distinct strains stay in separate
+re-sequenced/clonal isolates sit; distinct strains stay in separate
 clusters. It is a **tunable** knob, documented in
 [`contracts/config.yaml`](contracts/config.yaml): raise it to be stricter about
 independence (fewer, larger groups), lower it to keep more groups. On the small
 synthetic fixture corpus the replicate feature-flips push many isolates just
-past 0.05, so you see a lot of small clusters — that is the conservative
-direction (it never *merges* things that should be apart) and is fine for the
-leakage guarantee.
+past 0.05, which produces many small clusters in the fixture data.
 
 ## Metrics
 
@@ -92,7 +81,7 @@ Everything is a pure function of the config + `seed`. Point `inputs.*` in your
 own config at real Module 1 artifacts and a real phenotype/target table to train
 for real.
 
-## Limitations & scope
+## Limitations
 
 - **Read-only decision support, not a verdict.** A statistical association is not
   proof of a causal mechanism; the top contributing features are correlations in

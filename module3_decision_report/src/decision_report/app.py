@@ -567,7 +567,7 @@ def render_hero() -> None:
           <h1 class="hero-title">{html.escape(PRODUCT_NAME)}</h1>
           <p class="hero-copy">
             Evidence-aware antibiotic resistance screening from assembled bacterial genomes.
-            Every result separates known mechanisms, statistical signals, and honest no-calls.
+            Every result separates known mechanisms, statistical signals, and explicit no-calls.
           </p>
           <div class="hero-pills" aria-label="Pipeline qualities">
             <span class="hero-pill"><span class="hero-dot"></span>Read-only analysis</span>

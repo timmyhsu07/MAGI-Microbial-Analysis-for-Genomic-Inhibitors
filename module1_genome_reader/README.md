@@ -1,17 +1,13 @@
-# Module 1 — The Genome Reader
+# Module 1: Genome Reader
 
-Turns a directory of assembled bacterial genome FASTA files into a **documented,
-reproducible ML feature matrix** of antimicrobial-resistance (AMR)
+Turns a directory of assembled bacterial genome FASTA files into a reproducible
+machine-learning feature matrix of antimicrobial-resistance (AMR)
 determinants, using [NCBI AMRFinderPlus](https://github.com/ncbi/amr) as the
 annotation engine.
 
-> **Defensive scope.** This module only *detects and tabulates* resistance
-> determinants that already exist in an assembled genome. It never designs,
-> modifies, or suggests changes to an organism.
->
-> **Module boundary.** This is Module 1 of a larger pipeline. It does **no**
-> modeling, prediction, drug-target gating, calibration, or UI — those are
-> Modules 2/3. Its single output is the feature matrix + its schema/provenance.
+This module only detects and tabulates resistance determinants already present
+in an assembled genome. Modeling, calibration, decision rules, and the UI live
+in Modules 2 and 3.
 
 ---
 

@@ -1,14 +1,7 @@
-"""Capture tool / database / dependency versions for the run manifest.
+"""Collect tool, database, and dependency versions for the run manifest.
 
-Reproducibility requires recording *exactly* what produced a feature matrix.
-This module gathers, defensively, the AMRFinderPlus software version, the
-AMRFinderPlus database version, the BLAST+ and HMMER versions AMRFinderPlus
-depends on, and the Python library versions used to build the outputs.
-
-Every probe is best-effort: a missing tool yields ``"unknown"`` (or a short
-error string) rather than crashing, so version capture never blocks a run.
-The one exception is enforced elsewhere -- the pipeline can be configured to
-*require* a resolvable AMRFinderPlus version and fail loudly if absent.
+Version probes are best-effort and return ``"unknown"`` when a tool is not
+available. Configuration validation handles cases where a version is required.
 """
 
 from __future__ import annotations

@@ -31,7 +31,7 @@ distance:
   method: jaccard
   mash_sketch_dir: null
   # Single-linkage cutoff. 0.05 ~ 95% shared content: collapses re-sequenced or
-  # clonal isolates while keeping genuinely distinct strains apart. TUNABLE —
+  # clonal isolates while keeping distinct strains apart. TUNABLE —
   # raise it to be stricter about independence, lower it to keep more groups.
   cluster_threshold: 0.05
 

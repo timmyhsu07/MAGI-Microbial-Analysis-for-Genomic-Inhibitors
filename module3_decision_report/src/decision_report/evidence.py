@@ -1,19 +1,7 @@
-"""Evidence categorization (Module 3).
+"""Classify prediction evidence as known mechanism, association, or no signal.
 
-Assigns each drug prediction EXACTLY ONE evidence category from Module 1
-provenance (the long hits) plus Module 2 drivers (top features):
-
-  (i)  KNOWN_MECHANISM  - a curated known resistance determinant for this drug's
-       class was detected by an exact method (EXACT/POINT/ALLELE), or a
-       known-mechanism model feature drives the resistant call.
-  (ii) ASSOCIATION_ONLY - the call is driven by non-curated signal: resistance
-       hits of the right class seen only by weak methods (BLAST/PARTIAL/HMM), or
-       non-mechanism statistical features. Labeled association, NOT causation.
-  (iii) NO_SIGNAL       - neither of the above; the prediction is driven by the
-       ABSENCE of resistance markers.
-
-The category is computed independently of the final label so it can be shown as
-honest provenance even when the label is a no-call.
+The category combines Module 1 hits with Module 2 feature contributions and is
+computed independently from the final decision label.
 """
 
 from __future__ import annotations

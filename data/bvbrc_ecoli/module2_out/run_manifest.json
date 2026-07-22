@@ -4,10 +4,10 @@
     "seed": 1234,
     "output_dir": "module2_out",
     "inputs": {
-      "feature_matrix": "/Users/timmyhsu/Programming/HackNation2026/data/bvbrc_ecoli/module1_out/features_binary.parquet",
-      "feature_schema": "/Users/timmyhsu/Programming/HackNation2026/data/bvbrc_ecoli/module1_out/feature_schema.json",
-      "labels": "/Users/timmyhsu/Programming/HackNation2026/data/bvbrc_ecoli/labels.csv",
-      "target_gene_table": "/Users/timmyhsu/Programming/HackNation2026/data/bvbrc_ecoli/target_genes.csv"
+      "feature_matrix": "data/bvbrc_ecoli/module1_out/features_binary.parquet",
+      "feature_schema": "data/bvbrc_ecoli/module1_out/feature_schema.json",
+      "labels": "data/bvbrc_ecoli/labels.csv",
+      "target_gene_table": "data/bvbrc_ecoli/target_genes.csv"
     },
     "distance": {
       "method": "jaccard",

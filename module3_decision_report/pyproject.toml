@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "decision-report"
 version = "0.1.0"
-description = "Module 3 - The Decision Report: honest, no-call-aware per-drug decision cards over Module 1/2 output."
+description = "Module 3 - Per-drug decision cards with evidence categories and no-call handling."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }

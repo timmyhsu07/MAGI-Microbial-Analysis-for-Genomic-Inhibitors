@@ -9,10 +9,9 @@ protocol. The production :class:`AmrfinderRunner` shells out to the tool; tests
 inject a mock runner that writes canned TSVs, so the whole pipeline is
 exercisable end-to-end without AMRFinderPlus installed.
 
-Cache validity is keyed on everything that can change a result: the input file
-checksum, the organism, the ``--plus`` setting, the sequence mode, and the
-AMRFinderPlus software + database versions. Any change invalidates the cache
-and forces a re-run, which keeps "same inputs -> identical outputs" honest.
+Cache validity includes the input checksum, organism, ``--plus`` setting,
+sequence mode, and AMRFinderPlus software and database versions. A change to
+any of these values invalidates the cached result.
 """
 
 from __future__ import annotations

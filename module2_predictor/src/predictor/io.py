@@ -1,6 +1,6 @@
 """Input readers and contract checks.
 
-Module 2 treats Module 1's feature schema as the source of truth. The matrix may
+Module 2 uses Module 1's feature schema to define column order. The matrix may
 contain additional columns, but training and inference are pinned to the schema
 order so model coefficients remain auditable and stable.
 """

@@ -1,6 +1,6 @@
 """Constants for the Genome Reader (Module 1).
 
-This module is the single source of truth for:
+This module contains:
 
 * schema / pipeline versions,
 * the mapping from AMRFinderPlus TSV headers (which changed between the 3.x and

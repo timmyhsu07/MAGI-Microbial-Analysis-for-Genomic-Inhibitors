@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
-"""Reproducible, end-to-end demo of the real (non-mock) three-module pipeline.
+"""Run the three-module pipeline with the bundled fixture feature matrix.
 
-Trains Module 2 for real on its own fixture corpus (shaped exactly like real
-Module 1 output -- no AMRFinderPlus install needed, since training never calls
-it), then wires the resulting artifacts through
-``decision_report.real_pipeline`` into Module 3's real decision engine for a
-handful of genomes -- the same path ``module3_decision_report/tests/
-test_real_pipeline.py`` exercises as a test, run here as a demo instead.
+The script trains Module 2, loads its artifacts through
+``decision_report.real_pipeline``, and generates Module 3 decisions for several
+genomes. AMRFinderPlus is not required because the feature matrix is included.
 
 Requires both packages installed in the current environment:
     pip install -e module2_predictor -e 'module3_decision_report[test]'

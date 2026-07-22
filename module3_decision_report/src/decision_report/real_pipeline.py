@@ -1,26 +1,9 @@
-"""Real integration adapter: Module 1's real output + Module 2's real trained
-artifacts, wired into Module 3's FeatureExtractor / Predictor protocols.
+"""Adapters for reading Module 1 output and Module 2 model artifacts.
 
-``mock_pipeline.py`` exists so Module 3 runs standalone with zero real
-artifacts. This module is the other half of that story: once Module 1 has
-produced a real ``output_dir`` (``features_binary`` + ``feature_schema`` [+
-``features_long``]) and Module 2 has trained real per-drug model artifacts,
-THIS is what a caller wires into :func:`decision_report.report.build_report`
-instead of the mocks -- see ``README.md``'s "Wiring it to the real pipeline"
-section.
-
-Nothing here reimplements Module 2's math. Calibrated probability and the
-target-gate call are read via :func:`predictor.inference.predict_one_genome` --
-the exact function Module 2 itself uses at inference time -- not recomputed.
-Only the per-drug feature-importance breakdown and a continuous
-distance-to-nearest-training-genome are computed here (from the stored model
-coefficients and :func:`predictor.distance.nearest_jaccard`), because Module 3
-owns the OOD *threshold decision*; Module 2 already reduced that to a boolean
-for its own reporting, which is not enough for Module 3's uncertainty rules.
-
-The ``predictor`` package (Module 2) is imported lazily inside functions, so
-``decision_report`` has no hard install-time dependency on it -- consistent
-with how ``config.py`` already lazy-imports ``yaml``.
+Calibrated probabilities and target-gate calls come from Module 2's inference
+function. This module adds the feature contributions and continuous OOD
+distance needed by the Module 3 decision rules. Module 2 is imported lazily so
+the mock pipeline can run without it installed.
 """
 
 from __future__ import annotations
@@ -54,16 +37,11 @@ def _genome_id_from_identifier(identifier: str) -> str:
 
 
 class Module1FeatureStore:
-    """Loads a real Module 1 output directory once; serves FeatureBundle lookups.
+    """Load a Module 1 output directory and serve feature bundles by genome ID.
 
-    Prefers the real per-hit provenance in ``features_long.parquet`` when
-    present. If a directory only carries the binary matrix -- e.g. Module 2's
-    fixture corpus, which is shaped exactly like Module 1 output but never ran
-    AMRFinderPlus -- hits are reconstructed from ``feature_schema.json``'s
-    per-column metadata instead: one synthesized hit per present feature,
-    lower-fidelity than a true per-hit record, but enough to drive evidence
-    categorization. ``used_reconstructed_hits`` tells a caller which path was
-    taken so this fallback is never silently mistaken for real provenance.
+    Per-hit provenance is read from ``features_long.parquet`` when available.
+    Otherwise, hits are reconstructed from ``feature_schema.json`` metadata.
+    ``used_reconstructed_hits`` records which path was used.
     """
 
     def __init__(self, output_dir: str | Path):
@@ -80,9 +58,7 @@ class Module1FeatureStore:
         self.used_reconstructed_hits = self._long is None
 
     def genome_ids(self) -> list[str]:
-        """Genome IDs present in this Module 1 output directory, sorted -- lets
-        the UI offer a dropdown instead of a free-text ID box (no typing on
-        stage, no guessing identifiers that aren't in the store)."""
+        """Return the available genome IDs in sorted order."""
         return sorted(self._binary_by_id)
 
     @staticmethod
@@ -153,13 +129,7 @@ class Module1FeatureStore:
 
 
 class ModelPredictor:
-    """Predictor protocol backed by Module 2's real trained artifacts.
-
-    ``covered_drugs()`` is DERIVED from whatever models are actually on disk,
-    never hardcoded -- it can never drift out of sync with what was trained,
-    which is what let the mock demo and the real config disagree on the
-    covered drug set (see AUDIT.md).
-    """
+    """Predictor implementation backed by Module 2 model artifacts."""
 
     def __init__(self, models_dir: str | Path, target_gene_table: str | Path, species: str):
         try:
@@ -188,9 +158,7 @@ class ModelPredictor:
         return [self._species]
 
     def ood_threshold(self) -> float:
-        """The OOD threshold Module 2 was trained with, for a caller to pass
-        straight into Module 3's DecisionConfig instead of hand-copying a
-        second value that can drift out of sync with the trained models."""
+        """Return the OOD threshold stored with the trained models."""
         thresholds = {float(a["ood"]["threshold"]) for a in self._artifacts.values()}
         return next(iter(thresholds)) if len(thresholds) == 1 else min(thresholds)
 

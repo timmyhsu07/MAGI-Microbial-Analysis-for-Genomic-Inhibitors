@@ -1,13 +1,9 @@
-"""Proves Module 1 -> Module 2 -> Module 3 actually run together for real.
+"""Integration tests for the Module 1 -> Module 2 -> Module 3 artifact path.
 
-This is the test AUDIT.md's cross-cutting finding #1 said didn't exist: every
-other Module 3 test drives ``mock_pipeline``. Here, Module 2 is trained for
-real on its own fixture corpus (which is shaped exactly like real Module 1
-output -- see ``module2_predictor/scripts/make_fixtures.py``), and the
-resulting artifacts are wired through ``real_pipeline`` into the exact same
-``report.build_report`` entrypoint the mocks use. No AMRFinderPlus install is
-needed: Module 2's training never calls AMRFinderPlus, only Module 1's live
-annotation stage would.
+Module 2 is trained on its fixture corpus, then the resulting artifacts are
+loaded through ``real_pipeline`` and passed to ``report.build_report``. The
+fixture corpus follows the Module 1 output schema, so AMRFinderPlus is not
+required for this test.
 
 Skipped automatically if the ``predictor`` package (Module 2) is not installed
 alongside ``decision_report`` in this environment.

@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-"""Fetch a small, real, labelled E. coli cohort from BV-BRC for the demo.
+"""Fetch a labelled E. coli cohort from the BV-BRC public API.
 
-This is the Phase 1 bottleneck-buster: it turns BV-BRC's public data API into a
-Module 1-ready input directory plus Module 2-ready label tables, with zero
-third-party dependencies (stdlib urllib/csv/json only, so it can't break on a
-fresh machine minutes before a demo).
+The output can be passed to Module 1 for annotation and Module 2 for training.
+The download path uses the Python standard library.
 
 What it produces under --out-dir (default: data/bvbrc_ecoli/):
 
@@ -23,7 +21,7 @@ Data model (verified against the live API):
     join key across all three artifacts and matches Module 1's genome_id (it
     strips the .fna extension back to the same string).
 
-Honesty note on target_genes.csv: gyrA/parC/ftsI/rpsL are the drugs' molecular
+Target-gene assumption: gyrA/parC/ftsI/rpsL are the drugs' molecular
 *targets* (essential/near-universal genes in a viable E. coli), NOT resistance
 determinants. AMRFinderPlus only reports a target gene when it carries a
 resistance mutation, so target *presence* can't be read off the AMR matrix. For
@@ -55,9 +53,7 @@ from pathlib import Path
 
 
 def _ssl_context() -> ssl.SSLContext:
-    """Build a verifying SSL context that works even when the Python install has no
-    configured CA store (a common macOS framework-Python issue). Prefers certifi's
-    bundle if importable, else the system default; never disables verification."""
+    """Build an SSL context using certifi when it is installed."""
     try:
         import certifi
         return ssl.create_default_context(cafile=certifi.where())

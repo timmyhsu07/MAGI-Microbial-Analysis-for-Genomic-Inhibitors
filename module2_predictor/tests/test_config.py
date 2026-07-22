@@ -2,7 +2,7 @@
 
 ``on_target_absent: susceptible`` is deliberately rejected: an absent
 molecular target means the drug cannot act on the organism, so the gate must
-never resolve to "likely to work" purely from target absence (see AUDIT.md).
+never resolve to "likely to work" purely from target absence.
 """
 
 from __future__ import annotations

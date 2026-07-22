@@ -2,7 +2,7 @@
 
 Per-cluster slices are often tiny, so some metrics are mathematically
 undefined. The report records those as JSON nulls rather than smoothing or
-dropping groups, which keeps the audit trail honest.
+dropping groups.
 """
 
 from __future__ import annotations
@@ -66,12 +66,7 @@ def score_binary(y_true: np.ndarray, y_prob: np.ndarray, calls: list[str]) -> di
 
 
 def no_call_stats(y_true: np.ndarray, final_calls: list[str]) -> dict[str, Any]:
-    """How often the system abstains, and accuracy on the predictions it did make.
-
-    Uses the pipeline's FINAL call (after gate/OOD/low-confidence overrides), so
-    ``accuracy_on_called`` is genuinely the accuracy of the non-no-call subset --
-    the number the success criteria ask for alongside the no-call rate.
-    """
+    """Return the no-call rate and accuracy for predictions that were called."""
     yt = np.asarray(y_true, dtype=int)
     calls_arr = np.asarray(final_calls, dtype=object)
     n = int(calls_arr.size)
